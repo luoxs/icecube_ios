@@ -1,0 +1,8 @@
+target 'icecube' do
+platform:ios,'12.0'
+pod 'SDAutoLayout','~> 2.1.3'
+pod 'BabyBluetooth','~>0.7.0'
+pod 'MBProgressHUD','~>1.2.0'
+pod 'FLAnimatedImage','~>1.0’
+pod 'GHLLocalizable'
+end
