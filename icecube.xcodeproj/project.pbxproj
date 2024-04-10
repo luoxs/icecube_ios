@@ -20,11 +20,13 @@
 		4539708C2BC68EEB005D1CF4 /* mode.png in Resources */ = {isa = PBXBuildFile; fileRef = 453970872BC68EEA005D1CF4 /* mode.png */; };
 		4539708D2BC68EEB005D1CF4 /* turbo.png in Resources */ = {isa = PBXBuildFile; fileRef = 453970882BC68EEB005D1CF4 /* turbo.png */; };
 		4539708E2BC68EEB005D1CF4 /* power.png in Resources */ = {isa = PBXBuildFile; fileRef = 453970892BC68EEB005D1CF4 /* power.png */; };
+		453970902BC6EA30005D1CF4 /* backdrink.png in Resources */ = {isa = PBXBuildFile; fileRef = 4539708F2BC6EA30005D1CF4 /* backdrink.png */; };
+		453970942BC6F969005D1CF4 /* backfruit.png in Resources */ = {isa = PBXBuildFile; fileRef = 453970912BC6F969005D1CF4 /* backfruit.png */; };
+		453970952BC6F969005D1CF4 /* backfresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 453970922BC6F969005D1CF4 /* backfresh.png */; };
+		453970962BC6F969005D1CF4 /* backicecream.png in Resources */ = {isa = PBXBuildFile; fileRef = 453970932BC6F969005D1CF4 /* backicecream.png */; };
 		4559F8C02BBED783007E64E1 /* fresh1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4559F8B62BBED778007E64E1 /* fresh1.png */; };
 		4559F8C12BBED783007E64E1 /* fruit1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4559F8B72BBED778007E64E1 /* fruit1.png */; };
-		4559F8C22BBED783007E64E1 /* backfresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 4559F8B82BBED779007E64E1 /* backfresh.png */; };
 		4559F8C32BBED783007E64E1 /* drink1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4559F8B92BBED779007E64E1 /* drink1.png */; };
-		4559F8C42BBED783007E64E1 /* backdrin.png in Resources */ = {isa = PBXBuildFile; fileRef = 4559F8BA2BBED77A007E64E1 /* backdrin.png */; };
 		4559F8C52BBED783007E64E1 /* drink.png in Resources */ = {isa = PBXBuildFile; fileRef = 4559F8BB2BBED77A007E64E1 /* drink.png */; };
 		4559F8C62BBED783007E64E1 /* fresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 4559F8BC2BBED77B007E64E1 /* fresh.png */; };
 		4559F8C72BBED783007E64E1 /* fruit.png in Resources */ = {isa = PBXBuildFile; fileRef = 4559F8BD2BBED77B007E64E1 /* fruit.png */; };
@@ -77,16 +79,16 @@
 		453970872BC68EEA005D1CF4 /* mode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mode.png; sourceTree = "<group>"; };
 		453970882BC68EEB005D1CF4 /* turbo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = turbo.png; sourceTree = "<group>"; };
 		453970892BC68EEB005D1CF4 /* power.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power.png; sourceTree = "<group>"; };
+		4539708F2BC6EA30005D1CF4 /* backdrink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backdrink.png; sourceTree = "<group>"; };
+		453970912BC6F969005D1CF4 /* backfruit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backfruit.png; sourceTree = "<group>"; };
+		453970922BC6F969005D1CF4 /* backfresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backfresh.png; sourceTree = "<group>"; };
+		453970932BC6F969005D1CF4 /* backicecream.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backicecream.png; sourceTree = "<group>"; };
 		4559F8B62BBED778007E64E1 /* fresh1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fresh1.png; sourceTree = "<group>"; };
 		4559F8B72BBED778007E64E1 /* fruit1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fruit1.png; sourceTree = "<group>"; };
-		4559F8B82BBED779007E64E1 /* backfresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backfresh.png; sourceTree = "<group>"; };
 		4559F8B92BBED779007E64E1 /* drink1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drink1.png; sourceTree = "<group>"; };
-		4559F8BA2BBED77A007E64E1 /* backdrin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backdrin.png; sourceTree = "<group>"; };
 		4559F8BB2BBED77A007E64E1 /* drink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drink.png; sourceTree = "<group>"; };
 		4559F8BC2BBED77B007E64E1 /* fresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fresh.png; sourceTree = "<group>"; };
 		4559F8BD2BBED77B007E64E1 /* fruit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fruit.png; sourceTree = "<group>"; };
-		4559F8CA2BBED78C007E64E1 /* backicecream.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backicecream.png; sourceTree = "<group>"; };
-		4559F8CB2BBED78C007E64E1 /* backfruit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backfruit.png; sourceTree = "<group>"; };
 		4559F8CC2BBED79E007E64E1 /* icecream1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icecream1.png; sourceTree = "<group>"; };
 		4559F8CD2BBED79F007E64E1 /* icecream.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icecream.png; sourceTree = "<group>"; };
 		4559F8D02BBED94A007E64E1 /* addon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addon.png; sourceTree = "<group>"; };
@@ -156,6 +158,10 @@
 		4559F8B52BBED446007E64E1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				453970922BC6F969005D1CF4 /* backfresh.png */,
+				453970912BC6F969005D1CF4 /* backfruit.png */,
+				453970932BC6F969005D1CF4 /* backicecream.png */,
+				4539708F2BC6EA30005D1CF4 /* backdrink.png */,
 				453970862BC68EEA005D1CF4 /* add.png */,
 				453970852BC68EEA005D1CF4 /* minus.png */,
 				453970872BC68EEA005D1CF4 /* mode.png */,
@@ -181,10 +187,6 @@
 				4559F8D02BBED94A007E64E1 /* addon.png */,
 				4559F8CD2BBED79F007E64E1 /* icecream.png */,
 				4559F8CC2BBED79E007E64E1 /* icecream1.png */,
-				4559F8CB2BBED78C007E64E1 /* backfruit.png */,
-				4559F8CA2BBED78C007E64E1 /* backicecream.png */,
-				4559F8BA2BBED77A007E64E1 /* backdrin.png */,
-				4559F8B82BBED779007E64E1 /* backfresh.png */,
 				4559F8BB2BBED77A007E64E1 /* drink.png */,
 				4559F8B92BBED779007E64E1 /* drink1.png */,
 				4559F8BC2BBED77B007E64E1 /* fresh.png */,
@@ -342,17 +344,19 @@
 				4539708D2BC68EEB005D1CF4 /* turbo.png in Resources */,
 				45D5F17B2BAEC49200EC528C /* LaunchScreen.storyboard in Resources */,
 				459DC6332BBFC5680045A571 /* return.png in Resources */,
+				453970952BC6F969005D1CF4 /* backfresh.png in Resources */,
 				4559F8D22BBED94A007E64E1 /* addon.png in Resources */,
 				4559F8DC2BBEF2CB007E64E1 /* icon23.png in Resources */,
 				453970812BC65F15005D1CF4 /* fahre.png in Resources */,
 				453970822BC65F15005D1CF4 /* ceils.png in Resources */,
 				459DC6372BBFC7520045A571 /* select.png in Resources */,
 				4539708E2BC68EEB005D1CF4 /* power.png in Resources */,
+				453970902BC6EA30005D1CF4 /* backdrink.png in Resources */,
 				4559F8C72BBED783007E64E1 /* fruit.png in Resources */,
 				4559F8CE2BBED79F007E64E1 /* icecream1.png in Resources */,
 				4559F8C12BBED783007E64E1 /* fruit1.png in Resources */,
+				453970942BC6F969005D1CF4 /* backfruit.png in Resources */,
 				4559F8E22BBEF5EE007E64E1 /* IC43.png in Resources */,
-				4559F8C42BBED783007E64E1 /* backdrin.png in Resources */,
 				4559F8CF2BBED79F007E64E1 /* icecream.png in Resources */,
 				4559F8E32BBEF5EE007E64E1 /* IC23.png in Resources */,
 				450FFF8B2BBEB9EB00B26EAF /* 1125x2436.gif in Resources */,
@@ -362,9 +366,9 @@
 				4539708C2BC68EEB005D1CF4 /* mode.png in Resources */,
 				4559F8C62BBED783007E64E1 /* fresh.png in Resources */,
 				45D5F1762BAEC48F00EC528C /* Main.storyboard in Resources */,
+				453970962BC6F969005D1CF4 /* backicecream.png in Resources */,
 				4559F8C32BBED783007E64E1 /* drink1.png in Resources */,
 				4559F8C52BBED783007E64E1 /* drink.png in Resources */,
-				4559F8C22BBED783007E64E1 /* backfresh.png in Resources */,
 				459DC6342BBFC5680045A571 /* bluetooth.png in Resources */,
 				453970842BC65FE5005D1CF4 /* center.png in Resources */,
 				4559F8DE2BBEF2CB007E64E1 /* icon63.png in Resources */,
@@ -561,6 +565,7 @@
 				DEVELOPMENT_TEAM = KVC8NZTYE2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = icecube/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Айскьюб";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -590,6 +595,7 @@
 				DEVELOPMENT_TEAM = KVC8NZTYE2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = icecube/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Айскьюб";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

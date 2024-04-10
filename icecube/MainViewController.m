@@ -171,7 +171,6 @@
     [self.lbTempSetting sizeToFit];
     
     
-    
     //单位图案
     self.btUnit = [[UIButton alloc] init];
     [self.btUnit setImage:[UIImage imageNamed:@"fahre"] forState:UIControlStateNormal];
@@ -825,7 +824,8 @@
     }else{
         self.style = 0;
     }
-    
+    [self.imageCenter setImage:[UIImage imageNamed:@"backfresh"]];
+    [self.btFresh setImage:[UIImage imageNamed:@"fresh"] forState:UIControlStateNormal];
     [self.btFruit setImage:[UIImage imageNamed:@"fruit"] forState:UIControlStateNormal];
     [self.btDrink setImage:[UIImage imageNamed:@"drink"] forState:UIControlStateNormal];
     [self.btIceCream setImage:[UIImage imageNamed:@"icecream"] forState:UIControlStateNormal];
