@@ -12,7 +12,7 @@
 #import <GHLLocalizable/GHLLocalizable.h>
 
 @interface MainViewController ()
-@property(nonatomic,strong) UIImageView *imageSnow ;
+//@property(nonatomic,strong) UIImageView *imageSnow ;
 @property(nonatomic,strong) UIButton *btUnit;
 @property(nonatomic,strong) UIImageView *imageCenter;
 @property(nonatomic,strong) UIButton *btFresh ;
@@ -65,7 +65,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(languageChange:) name:GHLNotificationLanguageChanged object:nil];
+ //   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(languageChange:) name:GHLNotificationLanguageChanged object:nil];
     // Do any additional setup after loading the view.
     self.oreition = 0;
     
@@ -329,6 +329,8 @@
     UILabel  *labelUrl = [UILabel new];
     [self.view addSubview:labelUrl];
     [labelUrl setText:@"www.icecube.ru"];
+    
+    [labelUrl setTextAlignment:NSTextAlignmentCenter];
     labelUrl.font = [UIFont fontWithName:@"Arial" size:12.0];
     [labelUrl setTextColor:[UIColor colorWithRed:11.0/255 green:57.0/255 blue:148.0/255 alpha:1.0]];
     labelUrl.sd_layout
@@ -336,7 +338,7 @@
         .topSpaceToView(self.view, 1546*rheight)
         .heightIs(54*rheight)
         .widthIs(170*rwith);
-    [labelUrl adjustsFontSizeToFitWidth];
+  //  [labelUrl adjustsFontSizeToFitWidth];
     
     
     //减号
@@ -1021,10 +1023,10 @@
     
     //关机
     if(self.dataRead.power == 0){
-        [self.imageSnow setImage:[UIImage imageNamed:@"icon_snow"]];
+      //  [self.imageSnow setImage:[UIImage imageNamed:@"icon_snow"]];
         [self.btUnit setImage:[UIImage imageNamed:@"FC"] forState:UIControlStateNormal];
-        [self.imageCenter setImage:[UIImage imageNamed:@"img_beijing-1"]];
-        [self.imageSlide setImage:[UIImage imageNamed:@"btn_huadong"]];
+        [self.imageCenter setImage:[UIImage imageNamed:@"center"]];
+       // [self.imageSlide setImage:[UIImage imageNamed:@"btn_huadong"]];
         [self.btFresh setImage:[UIImage imageNamed:@"fresh"] forState:UIControlStateNormal];
         [self.btFruit setImage:[UIImage imageNamed:@"fruit"] forState:UIControlStateNormal];
         [self.btDrink setImage:[UIImage imageNamed:@"drink"] forState:UIControlStateNormal];
@@ -1041,7 +1043,7 @@
     
     //开机
     if(self.dataRead.power == 0x01){
-        [self.imageSnow setImage:[UIImage imageNamed:@"snow"]];
+       // [self.imageSnow setImage:[UIImage imageNamed:@"snow"]];
         [self.btUnit setImage:[UIImage imageNamed:@"fahre"] forState:UIControlStateNormal];
         switch (self.style) {
             case 1:
@@ -1069,7 +1071,7 @@
                         break;
         }
         // [self.imageCenter setImage:[UIImage imageNamed:@"center"]];
-        [self.imageSlide setImage:[UIImage imageNamed:@"滑动"]];
+      //  [self.imageSlide setImage:[UIImage imageNamed:@"滑动"]];
         [self.btMode setImage:[UIImage imageNamed:@"turbo"] forState:UIControlStateNormal];
         [self.btBattery setImage:[UIImage imageNamed:@"mode"] forState:UIControlStateNormal];
         [self.btAdd setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
@@ -1107,14 +1109,10 @@
             }
             slidetem = [NSString stringWithFormat:@"%d",frese];
         }
-        [self.imageSlide setImage:[UIImage imageNamed:slidetem]];
+     //   [self.imageSlide setImage:[UIImage imageNamed:slidetem]];
         
     }
     
-    
-    
-    //    [self.view layoutIfNeeded];
-    //    [self.view setNeedsLayout];
 }
 /*
  #pragma mark - Navigation
@@ -1126,22 +1124,22 @@
  }
  */
 
-- (void)languageChange:(NSNotification *)note {
-   // self.labelTitle.text = NSLocalizedString(@"shop", nil);
-   // self.labelTitle.text = NSLocalizedString(@"shop", nil);
-    UILabel *batterProtect = (UILabel *) [self.view viewWithTag:101];
-    UILabel *choose = (UILabel *) [self.view viewWithTag:102];
-    batterProtect.text = NSLocalizedString(@"battery", nil);
-    choose.text = NSLocalizedString(@"choos", nil);
-    [self.btLow setTitle:NSLocalizedString(@"low", nil) forState:UIControlStateNormal];
-    [self.btMiddle setTitle:NSLocalizedString(@"middle", nil) forState:UIControlStateNormal];
-    [self.btHigh setTitle:NSLocalizedString(@"high", nil) forState:UIControlStateNormal];
-    [self.btConfirmB setTitle:NSLocalizedString(@"confirm", nil) forState:UIControlStateNormal];
-    UILabel *lbMode = (UILabel *) [self.view viewWithTag:103];
-    lbMode.text = NSLocalizedString(@"mode", nil);
-    [self.btTurbo setTitle:NSLocalizedString(@"turbo", nil) forState:UIControlStateNormal];
-    [self.btEco setTitle:NSLocalizedString(@"eco", nil) forState:UIControlStateNormal];
-    [self.btConfirmT setTitle:NSLocalizedString(@"confirm", nil) forState:UIControlStateNormal];
-}
+//- (void)languageChange:(NSNotification *)note {
+//   // self.labelTitle.text = NSLocalizedString(@"shop", nil);
+//   // self.labelTitle.text = NSLocalizedString(@"shop", nil);
+//    UILabel *batterProtect = (UILabel *) [self.view viewWithTag:101];
+//    UILabel *choose = (UILabel *) [self.view viewWithTag:102];
+//    batterProtect.text = NSLocalizedString(@"battery", nil);
+//    choose.text = NSLocalizedString(@"choos", nil);
+//    [self.btLow setTitle:NSLocalizedString(@"low", nil) forState:UIControlStateNormal];
+//    [self.btMiddle setTitle:NSLocalizedString(@"middle", nil) forState:UIControlStateNormal];
+//    [self.btHigh setTitle:NSLocalizedString(@"high", nil) forState:UIControlStateNormal];
+//    [self.btConfirmB setTitle:NSLocalizedString(@"confirm", nil) forState:UIControlStateNormal];
+//    UILabel *lbMode = (UILabel *) [self.view viewWithTag:103];
+//    lbMode.text = NSLocalizedString(@"mode", nil);
+//    [self.btTurbo setTitle:NSLocalizedString(@"turbo", nil) forState:UIControlStateNormal];
+//    [self.btEco setTitle:NSLocalizedString(@"eco", nil) forState:UIControlStateNormal];
+//    [self.btConfirmT setTitle:NSLocalizedString(@"confirm", nil) forState:UIControlStateNormal];
+//}
 
 @end
