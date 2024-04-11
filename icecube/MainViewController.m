@@ -71,6 +71,7 @@
     
     [self setAutoLayout];
     [self getStoredPass];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     self.dataRead = [[DataRead alloc]init];
     [self.viewMusk setHidden:YES];
     [self.viewMuskTurbo setHidden:YES];
@@ -86,6 +87,7 @@
     //设置蓝牙委托
     [self babyDelegate];
     [self.timer isValid];
+    self.timer = nil;
     [self getStatus];
 }
 
@@ -147,7 +149,7 @@
     [self.lbTempSetting setBackgroundColor:[UIColor clearColor]];
     [self.lbTempSetting setTextColor:[UIColor whiteColor]];
     self.lbTempSetting.text = @"0°C";
-    [self.lbTempSetting  setFont:[UIFont fontWithName:@"DINAlternate-Bold" size:60]];
+    [self.lbTempSetting  setFont:[UIFont fontWithName:@"DINAlternate-Bold" size:54]];
     [self.lbTempSetting  setTextColor:[UIColor whiteColor]];
     [self.lbTempSetting sizeToFit];
     
@@ -295,11 +297,10 @@
     UIImageView *btPowerback = [[UIImageView alloc]init];
     [self.view addSubview:btPowerback];
     btPowerback.sd_layout
-        .topSpaceToView(self.view, rheight*709)
-        .leftSpaceToView(self.view, rwith*163)
-        .heightIs(rheight*65)
-    // .widthIs(rwith*65);
-        .widthEqualToHeight();
+        .centerXEqualToView(funcview)
+        .centerYEqualToView(funcview)
+        .widthIs(70*rwith)
+        .heightEqualToWidth();
     [btPowerback setImage:[UIImage imageNamed:@"powerback"]] ;
     
     //开关
