@@ -471,7 +471,7 @@
     
     self.viewTurbo = [UIView new];
     [self.viewMuskTurbo addSubview:self.viewTurbo];
-    [self.viewTurbo setBackgroundColor:[UIColor colorWithRed:192/255.0 green:192/255.0 blue:192/255.0 alpha:1.0]];
+    [self.viewTurbo setBackgroundColor:[UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0]];
     self.viewTurbo.sd_layout
         .centerXEqualToView(self.viewMusk)
         .centerYEqualToView(self.viewMusk)
@@ -489,7 +489,7 @@
         .centerXEqualToView(self.viewTurbo)
         .heightIs(rheight*100)
         .widthIs(610*rwith);
-    [self.btTurbo setBackgroundColor:[UIColor colorWithRed:192/255.0 green:192/255.0 blue:192/255.0 alpha:1.0]];
+    [self.btTurbo setTitleColor:[UIColor colorWithRed:194/255.0 green:194/255.0 blue:194/255.0 alpha:1.0] forState:UIControlStateNormal];
     [self.btTurbo setTitle:@"ЭКО режим" forState:UIControlStateNormal];
     [self.btTurbo setBackgroundColor:[UIColor whiteColor]];
     [self.btTurbo addTarget:self action:@selector(TurboSelected) forControlEvents:UIControlEventTouchUpInside];
@@ -502,7 +502,7 @@
         .centerXEqualToView(self.viewTurbo)
         .heightIs(rheight*100)
         .widthIs(610*rwith);
-    [self.btEco setBackgroundColor:[UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0]];
+    [self.btEco setTitleColor:[UIColor colorWithRed:194/255.0 green:194/255.0 blue:194/255.0 alpha:1.0] forState:UIControlStateNormal];
      [self.btEco setTitle:@"ТУРБО режим" forState:UIControlStateNormal];
     [self.btEco setBackgroundColor:[UIColor whiteColor]];
     [self.btEco addTarget:self action:@selector(EcoSelected) forControlEvents:UIControlEventTouchUpInside];
@@ -886,8 +886,8 @@
     [self.btMiddle setBackgroundColor:[UIColor whiteColor]];
     [self.btHigh setBackgroundColor:[UIColor whiteColor]];
     [self.btLow setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.btMiddle setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.btHigh setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.btMiddle setTitleColor:[UIColor colorWithRed:192/255.0 green:192/255.0 blue:192/255.0 alpha:1.0] forState:UIControlStateNormal];
+    [self.btHigh setTitleColor:[UIColor colorWithRed:192/255.0 green:192/255.0 blue:192/255.0 alpha:1.0] forState:UIControlStateNormal];
 }
 
 -(void) MiddleSelected{
@@ -895,6 +895,9 @@
     [self.btMiddle setBackgroundColor:[UIColor colorWithRed:12/255.0 green:59/255.0 blue:149/255.0 alpha:1.0]];
     [self.btLow setBackgroundColor:[UIColor whiteColor]];
     [self.btHigh setBackgroundColor:[UIColor whiteColor]];
+    [self.btMiddle setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.btLow setTitleColor:[UIColor colorWithRed:192/255.0 green:192/255.0 blue:192/255.0 alpha:1.0] forState:UIControlStateNormal];
+    [self.btHigh setTitleColor:[UIColor colorWithRed:192/255.0 green:192/255.0 blue:192/255.0 alpha:1.0] forState:UIControlStateNormal];
 }
 
 -(void) HighSelected{
@@ -902,6 +905,9 @@
     [self.btHigh setBackgroundColor:[UIColor colorWithRed:12/255.0 green:59/255.0 blue:149/255.0 alpha:1.0]];
     [self.btLow setBackgroundColor:[UIColor whiteColor]];
     [self.btMiddle setBackgroundColor:[UIColor whiteColor]];
+    [self.btHigh setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.btMiddle setTitleColor:[UIColor colorWithRed:192/255.0 green:192/255.0 blue:192/255.0 alpha:1.0] forState:UIControlStateNormal];
+    [self.btLow setTitleColor:[UIColor colorWithRed:192/255.0 green:192/255.0 blue:192/255.0 alpha:1.0] forState:UIControlStateNormal];
 }
 
 
@@ -928,33 +934,23 @@
     }
     
 }
-//
-//-(void) EcoSelected{
-//    self.Turbo = 0x00;
-//    [self.btTurbo setImage:[UIImage imageNamed:@"btn_turbo"] forState:UIControlStateNormal];
-//    [self.btEco setImage:[UIImage imageNamed:@"btn_eco1"] forState:UIControlStateNormal];
-//}
-//
-//-(void)TurboSelected{
-//    self.Turbo = 0x01;
-//    [self.btTurbo setImage:[UIImage imageNamed:@"btn_turbo1"] forState:UIControlStateNormal];
-//    [self.btEco setImage:[UIImage imageNamed:@"btn_eco"] forState:UIControlStateNormal];
-//}
+
 
 -(void) EcoSelected{
     self.Turbo = 0x00;
-//    [self.btTurbo setImage:[UIImage imageNamed:@"btn_turbo"] forState:UIControlStateNormal];
-//    [self.btEco setImage:[UIImage imageNamed:@"btn_eco1"] forState:UIControlStateNormal];
-    [self.btEco setBackgroundColor:[UIColor colorWithRed:255/255.0 green:205/255.0 blue:1/255.0 alpha:1]];
-    [self.btTurbo setBackgroundColor:[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]];
+    [self.btEco setBackgroundColor:[UIColor colorWithRed:12/255.0 green:59/255.0 blue:149/255.0 alpha:1.0]];
+    [self.btTurbo setBackgroundColor:[UIColor whiteColor]];
+    [self.btEco setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.btTurbo setTitleColor:[UIColor colorWithRed:192/255.0 green:192/255.0 blue:192/255.0 alpha:1.0] forState:UIControlStateNormal];
+  
 }
 
 -(void)TurboSelected{
     self.Turbo = 0x01;
-//    [self.btTurbo setImage:[UIImage imageNamed:@"btn_turbo1"] forState:UIControlStateNormal];
-//    [self.btEco setImage:[UIImage imageNamed:@"btn_eco"] forState:UIControlStateNormal];
-    [self.btTurbo setBackgroundColor:[UIColor colorWithRed:255/255.0 green:205/255.0 blue:1/255.0 alpha:1]];
-    [self.btEco setBackgroundColor:[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]];
+    [self.btTurbo setBackgroundColor:[UIColor colorWithRed:12/255.0 green:59/255.0 blue:149/255.0 alpha:1.0]];
+    [self.btEco setBackgroundColor:[UIColor whiteColor]];
+    [self.btTurbo setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.btEco setTitleColor:[UIColor colorWithRed:192/255.0 green:192/255.0 blue:192/255.0 alpha:1.0] forState:UIControlStateNormal];
 }
 
 -(void) confirmT{
