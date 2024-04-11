@@ -10,6 +10,7 @@
 #import "SDAutoLayout.h"
 #include "crc.h"
 #import <GHLLocalizable/GHLLocalizable.h>
+#import "DeviceViewController.h"
 
 @interface MainViewController ()
 //@property(nonatomic,strong) UIImageView *imageSnow ;
@@ -684,9 +685,15 @@
 //返回
 -(void)setGoback{
     [baby cancelAllPeripheralsConnection];
-    [self dismissViewControllerAnimated:YES completion:^{
-        nil;
+//    [self dismissViewControllerAnimated:YES completion:^{
+//        nil;
+//    }];
+    DeviceViewController *deviceViewController = [DeviceViewController new];
+    deviceViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:deviceViewController animated:YES completion:^{
+            nil;
     }];
+    
 }
 
 
@@ -931,6 +938,7 @@
         write[5] = 0xFF & (CalcCRC(&write[1], 4)>>8);
         write[7] = 0x55;
         
+        //电池保护 中等 AA 07 01 09 87 A2 16 55
         NSData *data = [[NSData alloc]initWithBytes:write length:8];
         [self.currPeripheral writeValue:data forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
         [self.currPeripheral setNotifyValue:YES forCharacteristic:self.characteristic];

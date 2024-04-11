@@ -388,7 +388,7 @@
         write[5] = 0xFF & (CalcCRC(&write[1], 4)>>8);
         write[7] = 0x55;
         
-        //首次连接 write = AA 09 01 00 00 78 52 55
+        //首次连接 write = AA 01 00 09 46 7A 86 55
         
         NSData *data = [[NSData alloc]initWithBytes:write length:8];
         [self.currPeripheral writeValue:data forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];

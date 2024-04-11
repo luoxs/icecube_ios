@@ -328,6 +328,7 @@
         for (CBCharacteristic *c in service.characteristics) {
             //NSLog(@"charateristic name is :%@",c.UUID);
             if([c.UUID.UUIDString isEqualToString:@"FEE1"]){
+            
                 weakSelf.currPeripheral = peripheral;
                 weakSelf.characteristic = c;
                 
