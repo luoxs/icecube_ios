@@ -341,23 +341,23 @@
                     weakSelf.bytePass3 = (int)strtoul([[weakSelf.strpass substringWithRange:NSMakeRange(2, 1)] UTF8String],0,16);
 //                    [weakSelf.body setHidden:YES];
                     
-//                    if(self.characteristic != nil){
-//                        Byte  write[8];
-//                        write[0] = 0xAA;
-//                        write[1] = 0x01;
-//                        write[2] = 0x00;
-//                        write[3] = (Byte)weakSelf.bytePass1;
-//                        write[4] = (Byte)weakSelf.bytePass2*16+weakSelf.bytePass3;
-//                        write[6] = 0xFF & CalcCRC(&write[1], 4);
-//                        write[5] = 0xFF & (CalcCRC(&write[1], 4)>>8);
-//                        write[7] = 0x55;
-//
-//                        //首次连接 write = AA 09 01 00 00 78 52 55
-//
-//                        NSData *data = [[NSData alloc]initWithBytes:write length:8];
-//                        [weakSelf.currPeripheral writeValue:data forCharacteristic:weakSelf.characteristic type:CBCharacteristicWriteWithResponse];
-//                        [weakSelf.currPeripheral setNotifyValue:YES forCharacteristic:weakSelf.characteristic];
-//                    }
+                    if(self.characteristic != nil){
+                        Byte  write[8];
+                        write[0] = 0xAA;
+                        write[1] = 0x01;
+                        write[2] = 0x00;
+                        write[3] = (Byte)weakSelf.bytePass1;
+                        write[4] = (Byte)weakSelf.bytePass2*16+weakSelf.bytePass3;
+                        write[6] = 0xFF & CalcCRC(&write[1], 4);
+                        write[5] = 0xFF & (CalcCRC(&write[1], 4)>>8);
+                        write[7] = 0x55;
+
+                        //首次连接 write = AA 09 01 00 00 78 52 55
+
+                        NSData *data = [[NSData alloc]initWithBytes:write length:8];
+                        [weakSelf.currPeripheral writeValue:data forCharacteristic:weakSelf.characteristic type:CBCharacteristicWriteWithResponse];
+                        [weakSelf.currPeripheral setNotifyValue:YES forCharacteristic:weakSelf.characteristic];
+                    }
                 }
                 [peripheral readValueForCharacteristic:c];
             }
@@ -429,8 +429,6 @@
             }
         }
     }];
-    
-    
     
     
     //扫描选项->CBCentralManagerScanOptionAllowDuplicatesKey:同一个Peripheral端的多个发现事件被聚合成一个发现事件

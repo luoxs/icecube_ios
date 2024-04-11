@@ -28,7 +28,7 @@
 @property(nonatomic,strong) UIButton *btMode;
 @property(nonatomic,strong) UIButton *btAdd;
 @property(nonatomic,strong) UIButton *btMinus;
-
+@property(nonatomic,retain) UIProgressView *prgview;
 @property Byte bytePass1;
 @property Byte bytePass2;
 @property Byte bytePass3;
@@ -78,7 +78,7 @@
     
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        [self getStatus];
+       // [self getStatus];
     }];
 }
 
@@ -294,15 +294,15 @@
     [self.btBattery addTarget:self action:@selector(setMode) forControlEvents:UIControlEventTouchUpInside];
     
     //电源背景
-    UIImageView *btPowerback = [[UIImageView alloc]init];
-    [self.view addSubview:btPowerback];
-    btPowerback.sd_layout
-        .centerXEqualToView(funcview)
-        .centerYEqualToView(funcview)
-        .widthIs(70*rwith)
-        .heightEqualToWidth();
-    [btPowerback setImage:[UIImage imageNamed:@"powerback"]] ;
-    
+//    UIImageView *btPowerback = [[UIImageView alloc]init];
+//    [self.view addSubview:btPowerback];
+//    btPowerback.sd_layout
+//        .centerXEqualToView(funcview)
+//        .centerYEqualToView(funcview)
+//        .widthIs(70*rwith)
+//        .heightEqualToWidth();
+//    [btPowerback setImage:[UIImage imageNamed:@"powerback"]] ;
+//
     //开关
     UIButton *btPower = [[UIButton alloc]init];
     [funcview addSubview:btPower];
@@ -365,11 +365,11 @@
     [self.btAdd setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
     [self.btAdd addTarget:self action:@selector(setAdd) forControlEvents:UIControlEventTouchUpInside];
     
-    UIProgressView  *prgview = [UIProgressView new];
-    [self.view addSubview:prgview];
-    [prgview setProgress:0.5];
-    [prgview setProgressTintColor:[UIColor colorWithRed:12/255.0 green:59/255.0 blue:149/255.0 alpha:1.0]];
-    prgview.sd_layout
+    self.prgview = [UIProgressView new];
+    [self.view addSubview:self.prgview];
+    [self.prgview setProgress:0.5];
+    [self.prgview setProgressTintColor:[UIColor colorWithRed:12/255.0 green:59/255.0 blue:149/255.0 alpha:1.0]];
+    self.prgview.sd_layout
     .centerXEqualToView(self.view)
     .centerYIs(1300*rheight)
     .heightIs(10*rheight)
@@ -1026,7 +1026,7 @@
     if(self.dataRead.power == 0){
       //  [self.imageSnow setImage:[UIImage imageNamed:@"icon_snow"]];
         [self.btUnit setImage:[UIImage imageNamed:@"FC"] forState:UIControlStateNormal];
-        [self.imageCenter setImage:[UIImage imageNamed:@"center"]];
+        [self.imageCenter setImage:[UIImage imageNamed:@"center1"]];
        // [self.imageSlide setImage:[UIImage imageNamed:@"btn_huadong"]];
         [self.btFresh setImage:[UIImage imageNamed:@"fresh"] forState:UIControlStateNormal];
         [self.btFruit setImage:[UIImage imageNamed:@"fruit"] forState:UIControlStateNormal];
@@ -1035,8 +1035,8 @@
         [self.lbcurrent setText:@""];
         [self.lbTempSetting setTextColor:[UIColor whiteColor]];
         [self.lbTempSetting setText:@"0°C"];
-        [self.btMode setImage:[UIImage imageNamed:@"icon_btn_t"] forState:UIControlStateNormal];
-        [self.btBattery setImage:[UIImage imageNamed:@"icon_btn_m"] forState:UIControlStateNormal];
+      //  [self.btMode setImage:[UIImage imageNamed:@"icon_btn_t"] forState:UIControlStateNormal];
+     //   [self.btBattery setImage:[UIImage imageNamed:@"icon_btn_m"] forState:UIControlStateNormal];
         
         [self.btAdd setImage:[UIImage imageNamed:@"icon_btn_add"] forState:UIControlStateNormal];
         [self.btMinus setImage:[UIImage imageNamed:@"icon_btn_minus"] forState:UIControlStateNormal];
@@ -1069,12 +1069,12 @@
                 [self.btDrink setImage:[UIImage imageNamed:@"drink"] forState:UIControlStateNormal];
                 [self.btIceCream setImage:[UIImage imageNamed:@"icecream"] forState:UIControlStateNormal];
                 [self.btFruit setImage:[UIImage imageNamed:@"fruit"] forState:UIControlStateNormal];
-                        break;
+                break;
         }
         // [self.imageCenter setImage:[UIImage imageNamed:@"center"]];
       //  [self.imageSlide setImage:[UIImage imageNamed:@"滑动"]];
-        [self.btMode setImage:[UIImage imageNamed:@"turbo"] forState:UIControlStateNormal];
-        [self.btBattery setImage:[UIImage imageNamed:@"mode"] forState:UIControlStateNormal];
+       // [self.btMode setImage:[UIImage imageNamed:@"turbo"] forState:UIControlStateNormal];
+      //  [self.btBattery setImage:[UIImage imageNamed:@"mode"] forState:UIControlStateNormal];
         [self.btAdd setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
         [self.btMinus setImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
         
@@ -1099,6 +1099,8 @@
                 [self.btUnit setImage:[UIImage imageNamed:@"ceils"] forState:UIControlStateNormal];
             }
             slidetem = [NSString stringWithFormat:@"%d",setting];
+            [self.prgview setProgress:(setting-(-18.0))/28.0];
+            
             
         }else{
             if(scale == 0 ){ //实际华氏
