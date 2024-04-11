@@ -102,25 +102,6 @@
     float rwith = self.view.size.width/750.0;
     float rheight = self.view.size.height/1622.0;
     
-    //返回按钮
-//    UIButton *btBack = [UIButton new];
-//    [self.view addSubview:btBack];
-//    btBack.sd_layout
-//        .topSpaceToView(self.view, rheight*62)
-//        .leftSpaceToView(self.view, rwith*12)
-//        .heightIs(rheight*24)
-//        .widthIs(rwith*24);
-//    [btBack setImage:[UIImage imageNamed:@"goback"] forState:UIControlStateNormal];
-//    [btBack addTarget:self action:@selector(setGoback) forControlEvents:UIControlEventTouchUpInside];
-//
-//    //雪花图案
-//    self.imageSnow = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"snow"]];
-//    [self.view addSubview: self.imageSnow];
-//    self.imageSnow.sd_layout
-//        .topSpaceToView(self.view, rheight*111)
-//        .leftSpaceToView(self.view, rwith*143)
-//        .heightIs(rheight*36)
-//        .widthIs(rwith*35);
     
     //返回
     UIButton *btreturn = [UIButton new];
@@ -193,23 +174,6 @@
     .heightIs(30);
     
     
-//    //温度提示
-//    self.lbcurrent = [[UILabel alloc] init];
-//    [ self.view addSubview:self.lbcurrent];
-//    self.lbcurrent.sd_layout
-//        .topSpaceToView(self.view, rheight*253)
-//        .centerXEqualToView(self.view)
-//        .widthIs(rwith*162)
-//        .heightIs(rheight*33);
-//    [self.lbcurrent setTextAlignment:NSTextAlignmentCenter];
-//    [self.lbcurrent setBackgroundColor:[UIColor clearColor]];
-//    self.lbcurrent.text = NSLocalizedString(@"current", nil);
-//    [self.lbcurrent sizeToFit];
-//    //  [self.lbcurrent  setFont:[UIFont fontWithName:@"Arial" size:22]];
-//    [self.lbcurrent  setTextColor:[UIColor whiteColor]];
-//    // [self.lbcurrent  setSingleLineAutoResizeWithMaxWidth:200];
-
-    
     //生鲜
     self.btFresh = [[UIButton alloc]init];
     [self.view addSubview:self.btFresh];
@@ -218,7 +182,6 @@
         .leftSpaceToView(self.view, rwith*112)
         .heightIs(rheight*54)
         .widthIs(rwith*70);
-    [self.btFresh setImage:[UIImage imageNamed:@"fresh"] forState:UIControlStateNormal];
     [self.btFresh setImage:[UIImage imageNamed:@"fresh"] forState:UIControlStateNormal];
     [self.btFresh addTarget:self action:@selector(setFresh) forControlEvents:UIControlEventTouchUpInside];
    
@@ -424,52 +387,27 @@
     //电池保护页面
     self.viewBattery = [UIView new];
     [self.viewMusk addSubview:self.viewBattery];
-    [self.viewBattery setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]];
+    [self.viewBattery setBackgroundColor:[UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0]];
     self.viewBattery.sd_layout
-        .topSpaceToView(self.viewMusk, rheight*565)
-        .leftSpaceToView(self.viewMusk, rwith*0)
-    // .heightIs(rheight*279)      //原设计424 超出边界
-        .heightIs(rheight*424)
-        .widthIs(rwith*390);         //原设计390
+          .centerXEqualToView(self.viewMusk)
+          .centerYEqualToView(self.viewMusk)
+          .widthIs(610*rwith)
+          .heightIs(678*rheight);
     self.viewBattery.layer.cornerRadius = 20.0f;
     self.viewBattery.layer.masksToBounds = YES;
     
-    
-//    UIImageView *batterProtect = [UIImageView new];
-//    [self.viewBattery addSubview:batterProtect];
-//    batterProtect.sd_layout
-//        .topSpaceToView(self.viewBattery, rheight*40)
-//        .leftSpaceToView(self.viewBattery, rwith*34)
-//        .heightIs(rheight*24)
-//        .widthIs(rwith*132);
-//    [batterProtect setImage:[UIImage imageNamed:@"Battery protect"]];
-    
-    UILabel *batterProtect = [UILabel new];
-    [self.viewBattery addSubview:batterProtect];
-    batterProtect.sd_layout
-        .topSpaceToView(self.viewBattery, rheight*40)
-        .leftSpaceToView(self.viewBattery, rwith*34)
-        .heightIs(rheight*24)
-        .widthIs(rwith*132);
-    [batterProtect setText:NSLocalizedString(@"battery", nil)];
-    batterProtect.font =  [UIFont fontWithName:@"GeezaPro-Bold" size:18.0];
-    [batterProtect adjustsFontSizeToFitWidth];
-    [batterProtect setTag:101];
-    
+ 
     //电池保护低
     self.btLow = [UIButton new];
     [self.viewBattery addSubview:self.btLow];
     self.btLow.sd_layout
-        .topSpaceToView(self.viewBattery, rheight*86)
-        .leftSpaceToView(self.viewBattery, rwith*30)
-        .heightIs(rheight*35)
-        .widthIs(rwith*92);
-    self.btLow.layer.cornerRadius = 18.0f;
-    self.btLow.layer.masksToBounds = YES;
-    [self.btLow setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-   // [self.btLow setImage:[UIImage imageNamed:@"btn_low1"] forState:UIControlStateNormal];
-    [self.btLow setTitle:NSLocalizedString(@"low", nil) forState:UIControlStateNormal];
-    [self.btLow setBackgroundColor:[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]];
+        .topSpaceToView(self.viewBattery, rheight*100)
+        .centerXEqualToView(self.viewBattery)
+        .heightIs(rheight*100)
+        .widthIs(610*rwith);
+    [self.btLow setTitleColor:[UIColor colorWithRed:194/255.0 green:194/255.0 blue:194/255.0 alpha:1.0] forState:UIControlStateNormal];
+    [self.btLow setTitle:@"НИЗКИЙ ур.защиты    10.1V" forState:UIControlStateNormal];
+    [self.btLow setBackgroundColor:[UIColor whiteColor]];
     [self.btLow addTarget:self action:@selector(LowSelected) forControlEvents:UIControlEventTouchUpInside];
     
     
@@ -477,32 +415,26 @@
     self.btMiddle = [UIButton new];
     [self.viewBattery addSubview:self.btMiddle];
     self.btMiddle.sd_layout
-        .topSpaceToView(self.viewBattery, rheight*86)
-        .leftSpaceToView(self.viewBattery, rwith*140)
-        .heightIs(rheight*35)
-        .widthIs(rwith*107);
-    self.btMiddle.layer.cornerRadius = 18.0f;
-    self.btMiddle.layer.masksToBounds = YES;
-    [self.btMiddle setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-   // [self.btMiddle setImage:[UIImage imageNamed:@"btn_middle"] forState:UIControlStateNormal];
-    [self.btMiddle setTitle:NSLocalizedString(@"middle", nil) forState:UIControlStateNormal];
-    [self.btMiddle setBackgroundColor:[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]];
+        .topSpaceToView(self.viewBattery, rheight*228)
+        .centerXEqualToView(self.viewBattery)
+        .heightIs(rheight*100)
+        .widthIs(610*rwith);
+    [self.btMiddle setTitleColor:[UIColor colorWithRed:192/255.0 green:192/255.0 blue:192/255.0 alpha:1.0] forState:UIControlStateNormal];
+    [self.btMiddle setTitle:@"СРЕДНИЙ ур.защиты   11.4V" forState:UIControlStateNormal];
+    [self.btMiddle setBackgroundColor:[UIColor whiteColor]];
     [self.btMiddle addTarget:self action:@selector(MiddleSelected) forControlEvents:UIControlEventTouchUpInside];
     
     //电池保护高
     self.btHigh = [UIButton new];
     [self.viewBattery addSubview:self.btHigh];
     self.btHigh.sd_layout
-        .topSpaceToView(self.viewBattery, rheight*86)
-        .leftSpaceToView(self.viewBattery, rwith*265)
-        .heightIs(rheight*35)
-        .widthIs(rwith*95);
-    self.btHigh.layer.cornerRadius = 18.0f;
-    self.btHigh.layer.masksToBounds = YES;
-    [self.btHigh setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-   // [self.btHigh setImage:[UIImage imageNamed:@"btn_high"] forState:UIControlStateNormal];
-    [self.btHigh setTitle:NSLocalizedString(@"high", nil) forState:UIControlStateNormal];
-    [self.btHigh setBackgroundColor:[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]];
+        .topSpaceToView(self.viewBattery, rheight*356)
+        .centerXEqualToView(self.viewBattery)
+        .heightIs(rheight*100)
+        .widthIs(610*rwith);
+    [self.btHigh setTitleColor:[UIColor colorWithRed:192/255.0 green:192/255.0 blue:192/255.0 alpha:1.0] forState:UIControlStateNormal];
+    [self.btHigh setTitle:@"ВЫСОКИЙ ур.защиты     11.8V" forState:UIControlStateNormal];
+    [self.btHigh setBackgroundColor:[UIColor whiteColor]];
     [self.btHigh addTarget:self action:@selector(HighSelected) forControlEvents:UIControlEventTouchUpInside];
     
     
@@ -510,15 +442,17 @@
     self.btConfirmB = [UIButton new];
     [self.viewBattery addSubview:self.btConfirmB];
     self.btConfirmB.sd_layout
-        .topSpaceToView(self.viewBattery, rheight*171)
-        .leftSpaceToView(self.viewBattery, rwith*32)
-        .heightIs(rheight*42)
-        .widthIs(rwith*326);
-    self.btConfirmB.layer.cornerRadius = 24.0f;
+        .topSpaceToView(self.viewBattery, rheight*530)
+        .centerXEqualToView(self.viewBattery)
+        .heightIs(rheight*90)
+        .widthIs(rwith*166);
+    self.btConfirmB.layer.cornerRadius = 6.0f;
     self.btConfirmB.layer.masksToBounds = YES;
+    self.btConfirmB.layer.borderWidth = 1.0f;
+    self.btConfirmB.layer.borderColor = [[UIColor blackColor] CGColor];
     [self.btConfirmB setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.btConfirmB setBackgroundColor:[UIColor colorWithRed:255/255.0 green:205/255.0 blue:0/255.0 alpha:1.0]];
-    [self.btConfirmB setTitle:NSLocalizedString(@"confirm", nil) forState:UIControlStateNormal];
+    [self.btConfirmB setBackgroundColor:[UIColor whiteColor]];
+    [self.btConfirmB setTitle:@"OK" forState:UIControlStateNormal];
     [self.btConfirmB addTarget:self action:@selector(confirmB) forControlEvents:UIControlEventTouchUpInside];
     
     
@@ -537,77 +471,59 @@
     
     self.viewTurbo = [UIView new];
     [self.viewMuskTurbo addSubview:self.viewTurbo];
-    [self.viewTurbo setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]];
+    [self.viewTurbo setBackgroundColor:[UIColor colorWithRed:192/255.0 green:192/255.0 blue:192/255.0 alpha:1.0]];
     self.viewTurbo.sd_layout
-        .leftSpaceToView(self.viewMuskTurbo, 0)
-        .rightSpaceToView(self.viewMuskTurbo, 0)
-        .topSpaceToView(self.viewMuskTurbo, rheight *565)
-    //.bottomSpaceToView(self.viewMuskTurbo, 0);
-        .heightIs(rheight*300);     //超出页面
+        .centerXEqualToView(self.viewMusk)
+        .centerYEqualToView(self.viewMusk)
+        .widthIs(610*rwith)
+        .heightIs(678*rheight);
     self.viewTurbo.layer.cornerRadius = 20.f;
     self.viewTurbo.layer.masksToBounds = YES;
-    
-    //Mode字体
-    UILabel *lbMode = [UILabel new];
-    [self.viewTurbo addSubview:lbMode];
-    lbMode.sd_layout
-        .topSpaceToView(self.viewTurbo, rheight*40)
-        .leftSpaceToView(self.viewTurbo, rwith*34)
-        .heightIs(rheight*24)
-        .widthIs(rwith*51);
-    //[lbMode setImage:[UIImage imageNamed:@"Mode-1"]];
-    [lbMode setText:NSLocalizedString(@"mode", nil)];
-    lbMode.font =  [UIFont fontWithName:@"GeezaPro-Bold" size:18.0];
-    [lbMode adjustsFontSizeToFitWidth];
-    [lbMode setTag:103];
+
     
     //Turob模式
     self.btTurbo = [UIButton new];
     [self.viewTurbo addSubview:self.btTurbo];
     self.btTurbo.sd_layout
-        .topSpaceToView(self.viewTurbo, rheight*86)
-        .leftSpaceToView(self.viewTurbo, rwith*30)
-        .heightIs(rheight*35)
-        .widthIs(rwith*67);
-    self.btTurbo.layer.cornerRadius = 18.0f;
-    self.btTurbo.layer.masksToBounds = YES;
-    [self.btTurbo setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    //[self.btTurbo setImage:[UIImage imageNamed:@"btn_turbo"] forState:UIControlStateNormal];
-    [self.btTurbo setBackgroundColor:[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]];
-    [self.btTurbo setTitle:NSLocalizedString(@"turbo", nil) forState:UIControlStateNormal];
+        .topSpaceToView(self.viewTurbo, rheight*100)
+        .centerXEqualToView(self.viewTurbo)
+        .heightIs(rheight*100)
+        .widthIs(610*rwith);
+    [self.btTurbo setBackgroundColor:[UIColor colorWithRed:192/255.0 green:192/255.0 blue:192/255.0 alpha:1.0]];
+    [self.btTurbo setTitle:@"ЭКО режим" forState:UIControlStateNormal];
+    [self.btTurbo setBackgroundColor:[UIColor whiteColor]];
     [self.btTurbo addTarget:self action:@selector(TurboSelected) forControlEvents:UIControlEventTouchUpInside];
     
     //Eco模式
     self.btEco = [UIButton new];
     [self.viewTurbo addSubview:self.btEco];
     self.btEco.sd_layout
-        .topSpaceToView(self.viewTurbo, rheight*86)
-        .leftSpaceToView(self.viewTurbo, rwith*128)
-        .heightIs(rheight*35)
-        .widthIs(rwith*67);
-    self.btEco.layer.cornerRadius = 18.0f;
-    self.btEco.layer.masksToBounds = YES;
-    [self.btEco setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-   // [self.btEco setImage:[UIImage imageNamed:@"btn_eco1"] forState:UIControlStateNormal];
-    [self.btEco setBackgroundColor:[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]];
-    [self.btEco setTitle:NSLocalizedString(@"eco", nil) forState:UIControlStateNormal];
+        .topSpaceToView(self.viewTurbo, rheight*228)
+        .centerXEqualToView(self.viewTurbo)
+        .heightIs(rheight*100)
+        .widthIs(610*rwith);
+    [self.btEco setBackgroundColor:[UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0]];
+     [self.btEco setTitle:@"ТУРБО режим" forState:UIControlStateNormal];
+    [self.btEco setBackgroundColor:[UIColor whiteColor]];
     [self.btEco addTarget:self action:@selector(EcoSelected) forControlEvents:UIControlEventTouchUpInside];
+    
     
     self.btConfirmT = [UIButton new];
     [self.viewTurbo addSubview:self.btConfirmT];
     self.btConfirmT.sd_layout
-        .topSpaceToView(self.viewTurbo, rheight*171)
-        .leftSpaceToView(self.viewTurbo, rwith*32)
-        .heightIs(rheight*42)
-        .widthIs(rwith*326);
-    self.btConfirmT.layer.cornerRadius = 24.0f;
+        .topSpaceToView(self.viewTurbo, rheight*530)
+        .centerXEqualToView(self.viewTurbo)
+        .heightIs(rheight*90)
+        .widthIs(rwith*166);
+    self.btConfirmT.layer.cornerRadius = 6.0f;
     self.btConfirmT.layer.masksToBounds = YES;
+    self.btConfirmT.layer.borderWidth = 1.0f;
+    self.btConfirmT.layer.borderColor = [[UIColor blackColor] CGColor];
     [self.btConfirmT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.btConfirmT setBackgroundColor:[UIColor colorWithRed:255/255.0 green:205/255.0 blue:0/255.0 alpha:1.0]];
-   // [self.btConfirmT setTitle:@"Confirm" forState:UIControlStateNormal];
-    // [self.btConfirmT setImage:[UIImage imageNamed:@"btn_confirm"] forState:UIControlStateNormal];
-    [self.btConfirmT setTitle:NSLocalizedString(@"confirm", nil) forState:UIControlStateNormal];
+    [self.btConfirmT setBackgroundColor:[UIColor whiteColor]];
+    [self.btConfirmT setTitle:@"OK" forState:UIControlStateNormal];
     [self.btConfirmT addTarget:self action:@selector(confirmT) forControlEvents:UIControlEventTouchUpInside];
+    
     
 }
 -(void)getStoredPass{
@@ -962,55 +878,30 @@
     [self.viewMusk setHidden:NO];
 }
 
-//-(void)LowSelected{
-//    self.Battery = 0x00;
-//    [self.btLow setImage:[UIImage imageNamed:@"btn_low1"] forState:UIControlStateNormal];
-//    [self.btMiddle setImage:[UIImage imageNamed:@"btn_middle"] forState:UIControlStateNormal];
-//    [self.btHigh setImage:[UIImage imageNamed:@"btn_high"] forState:UIControlStateNormal];
-//}
-//
-//-(void) MiddleSelected{
-//    self.Battery = 0x01;
-//    [self.btLow setImage:[UIImage imageNamed:@"btn_left"] forState:UIControlStateNormal];
-//    [self.btMiddle setImage:[UIImage imageNamed:@"btn_middle1"] forState:UIControlStateNormal];
-//    [self.btHigh setImage:[UIImage imageNamed:@"btn_high"] forState:UIControlStateNormal];
-//}
-//
-//-(void) HighSelected{
-//    self.Battery = 0x02;
-//    [self.btLow setImage:[UIImage imageNamed:@"btn_left"] forState:UIControlStateNormal];
-//    [self.btMiddle setImage:[UIImage imageNamed:@"btn_middle"] forState:UIControlStateNormal];
-//    [self.btHigh setImage:[UIImage imageNamed:@"btn_high1"] forState:UIControlStateNormal];
-//}
+
 
 -(void)LowSelected{
     self.Battery = 0x00;
-//    [self.btLow setImage:[UIImage imageNamed:@"btn_low1"] forState:UIControlStateNormal];
-//    [self.btMiddle setImage:[UIImage imageNamed:@"btn_middle"] forState:UIControlStateNormal];
-//    [self.btHigh setImage:[UIImage imageNamed:@"btn_high"] forState:UIControlStateNormal];
-    [self.btLow setBackgroundColor:[UIColor colorWithRed:255/255.0 green:205/255.0 blue:1/255.0 alpha:1]];
-    [self.btMiddle setBackgroundColor:[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]];
-    [self.btHigh setBackgroundColor:[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]];
+    [self.btLow setBackgroundColor:[UIColor colorWithRed:12/255.0 green:59/255.0 blue:149/255.0 alpha:1.0]];
+    [self.btMiddle setBackgroundColor:[UIColor whiteColor]];
+    [self.btHigh setBackgroundColor:[UIColor whiteColor]];
+    [self.btLow setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.btMiddle setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.btHigh setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 
 -(void) MiddleSelected{
     self.Battery = 0x01;
-//    [self.btLow setImage:[UIImage imageNamed:@"btn_low"] forState:UIControlStateNormal];
-//    [self.btMiddle setImage:[UIImage imageNamed:@"btn_middle1"] forState:UIControlStateNormal];
-//    [self.btHigh setImage:[UIImage imageNamed:@"btn_high"] forState:UIControlStateNormal];
-    [self.btMiddle setBackgroundColor:[UIColor colorWithRed:255/255.0 green:205/255.0 blue:1/255.0 alpha:1]];
-    [self.btLow setBackgroundColor:[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]];
-    [self.btHigh setBackgroundColor:[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]];
+    [self.btMiddle setBackgroundColor:[UIColor colorWithRed:12/255.0 green:59/255.0 blue:149/255.0 alpha:1.0]];
+    [self.btLow setBackgroundColor:[UIColor whiteColor]];
+    [self.btHigh setBackgroundColor:[UIColor whiteColor]];
 }
 
 -(void) HighSelected{
     self.Battery = 0x02;
-//    [self.btLow setImage:[UIImage imageNamed:@"btn_low"] forState:UIControlStateNormal];
-//    [self.btMiddle setImage:[UIImage imageNamed:@"btn_middle"] forState:UIControlStateNormal];
-//    [self.btHigh setImage:[UIImage imageNamed:@"btn_high1"] forState:UIControlStateNormal];
-    [self.btHigh setBackgroundColor:[UIColor colorWithRed:255/255.0 green:205/255.0 blue:1/255.0 alpha:1]];
-    [self.btLow setBackgroundColor:[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]];
-    [self.btMiddle setBackgroundColor:[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]];
+    [self.btHigh setBackgroundColor:[UIColor colorWithRed:12/255.0 green:59/255.0 blue:149/255.0 alpha:1.0]];
+    [self.btLow setBackgroundColor:[UIColor whiteColor]];
+    [self.btMiddle setBackgroundColor:[UIColor whiteColor]];
 }
 
 
