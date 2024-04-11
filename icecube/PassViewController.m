@@ -97,31 +97,6 @@
     .heightIs(0.031*viewY);
     [btReturn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     
-//    //文字 recreational seris
-//    UIImageView *imgRCeational = [UIImageView new];
-//    [imgRCeational setImage:[UIImage imageNamed:@"APP-Surface10_05"]];
-//    [self.view addSubview:imgRCeational];
-//    imgRCeational.sd_layout
-//    .centerXEqualToView(self.view)
-//    .widthRatioToView(self.view, 0.88)
-//    .centerYIs(viewY*0.222)
-//    .heightIs(viewY*0.115);
-    
-//    //中间提示文字
-//    //46 730 888, 817,955
-//    UILabel *lbInstruction = [UILabel new];
-//    [self.view addSubview:lbInstruction];
-//    [lbInstruction setTextColor:[UIColor whiteColor]];
-//    [lbInstruction setTextAlignment:NSTextAlignmentCenter];
-//    [lbInstruction setNumberOfLines:3];
-//    [lbInstruction sizeToFit];
-//    [lbInstruction setText:@"Please enter the three-digit combination\nof numbers/letters displayed on the\ncooler\'s LED screen.[0~9,A~F]"];
-//    lbInstruction.sd_layout
-//    .centerXEqualToView(self.view)
-//    .centerYIs(viewY*0.557)
-//    .widthIs(viewX*0.89)
-//    .heightIs(viewY*0.087);
-//    [lbInstruction setAdjustsFontSizeToFitWidth:YES];
 }
 
 #pragma  - mark 弹窗
@@ -315,7 +290,13 @@
                 weakSelf.dataRead.crch = r[19];   //CRC校验高八位
                 weakSelf.dataRead.crcl = r[20];   //CRC校验低八位
                 weakSelf.dataRead.end = r[21];  //通信结束
-                if(self.dataRead.type == 0x00){
+                
+                Byte testzero = 0;
+                for(int i=1;i<19;i++){
+                    testzero = testzero + r[i];
+                }
+                
+                if(testzero == 0x00){
                     NSLog(@"指令中密码不正确");
                 }else{
                     MainViewController *mainViewController = [[MainViewController alloc]init];
