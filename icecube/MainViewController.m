@@ -36,7 +36,7 @@
 
 @property Byte Turbo;
 @property Byte Battery;
-@property Byte oreition;
+//@property Byte oreition;
 
 //电池保护
 @property(nonatomic,strong) UIView *viewMusk;
@@ -67,7 +67,7 @@
     
  //   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(languageChange:) name:GHLNotificationLanguageChanged object:nil];
     // Do any additional setup after loading the view.
-    self.oreition = 0;
+    //self.oreition = 0;
     
     [self setAutoLayout];
     [self getStoredPass];
@@ -1090,7 +1090,7 @@
       
         NSString *slidetem;
         //选择冷藏
-        if(self.oreition==0){
+      //  if(self.oreition==0){
             if(scale == 0 ){ //实际华氏
                 self.lbTempSetting.text = [NSString stringWithFormat:@"%d°F",(int)(setting*1.8+ 32)];
                 [self.btUnit setImage:[UIImage imageNamed:@"fahre"] forState:UIControlStateNormal];
@@ -1101,17 +1101,17 @@
             slidetem = [NSString stringWithFormat:@"%d",setting];
             [self.prgview setProgress:(setting-(-18.0))/28.0];
             
-            
-        }else{
-            if(scale == 0 ){ //实际华氏
-                self.lbTempSetting.text = [NSString stringWithFormat:@"%d°F",(int)(frese*1.8+ 32)];
-                [self.btUnit setImage:[UIImage imageNamed:@"fahre"] forState:UIControlStateNormal];
-            }else{   // 实际摄氏
-                self.lbTempSetting.text = [NSString stringWithFormat:@"%d°C",frese];
-                [self.btUnit setImage:[UIImage imageNamed:@"ceils"] forState:UIControlStateNormal];
-            }
-            slidetem = [NSString stringWithFormat:@"%d",frese];
-        }
+//
+//        }else{
+//            if(scale == 0 ){ //实际华氏
+//                self.lbTempSetting.text = [NSString stringWithFormat:@"%d°F",(int)(frese*1.8+ 32)];
+//                [self.btUnit setImage:[UIImage imageNamed:@"fahre"] forState:UIControlStateNormal];
+//            }else{   // 实际摄氏
+//                self.lbTempSetting.text = [NSString stringWithFormat:@"%d°C",frese];
+//                [self.btUnit setImage:[UIImage imageNamed:@"ceils"] forState:UIControlStateNormal];
+//            }
+//            slidetem = [NSString stringWithFormat:@"%d",frese];
+//        }
      //   [self.imageSlide setImage:[UIImage imageNamed:slidetem]];
         
     }
