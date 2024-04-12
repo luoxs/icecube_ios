@@ -208,7 +208,7 @@
         if(i==self.devices.count){
             self.hud.mode = MBProgressHUDModeText;
             [self.view addSubview:self.hud];
-            self.hud.label.text = @"Device not found!";
+            self.hud.label.text = @"устройство не найдено";
             [self.hud setMinShowTime:3];
             [self.hud showAnimated:YES];
             [self.hud hideAnimated:YES];
@@ -225,9 +225,9 @@
 //打开蓝牙列表
 -(void)scan{
   //  [self.viewMusk setHidden:NO];
-    UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:@"Select a Device to Connect" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:@"Выберите устройство для подключения" message:nil preferredStyle:UIAlertControllerStyleAlert];
     if([self.devices count] == 0){
-        UIAlertAction *noaction = [UIAlertAction actionWithTitle:@"Device Not Found" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *noaction = [UIAlertAction actionWithTitle:@"устройство не найдено" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             nil;
         }];
         [alertViewController addAction:noaction];
@@ -240,10 +240,10 @@
             
             self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             self.hud.mode = MBProgressHUDModeIndeterminate;
-            self.hud.label.text = @"connect to device.....";
+            self.hud.label.text = @"Добавить....";
             [self.hud showAnimated:YES];
         }];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"отмена" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             nil;
         }];
         [alertViewController addAction:action];
@@ -276,7 +276,7 @@
     [baby setBlockOnDiscoverToPeripherals:^(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI) {
         
         NSString *advertiseName = advertisementData[@"kCBAdvDataLocalName"];
-        NSLog(@"Device discovered :%@",advertiseName);
+        NSLog(@"Устройство обнаружено:%@",advertiseName);
         
         if([advertiseName hasPrefix:self.strtype] )  {
             [weakSelf.devices addObject:peripheral];
