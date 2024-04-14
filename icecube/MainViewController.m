@@ -77,7 +77,7 @@
     
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
-       // [self getStatus];
+        // [self getStatus];
     }];
 }
 
@@ -166,10 +166,10 @@
     [self.view addSubview:imgtool];
     [imgtool setImage:[UIImage imageNamed:@""]];
     imgtool.sd_layout
-    .centerXEqualToView(self.view)
-    .bottomSpaceToView(self.btUnit, 10*rheight)
-    .widthIs(10)
-    .heightIs(30);
+        .centerXEqualToView(self.view)
+        .bottomSpaceToView(self.btUnit, 10*rheight)
+        .widthIs(10)
+        .heightIs(30);
     
     
     //生鲜
@@ -182,17 +182,17 @@
         .widthIs(rwith*70);
     [self.btFresh setImage:[UIImage imageNamed:@"fresh"] forState:UIControlStateNormal];
     [self.btFresh addTarget:self action:@selector(setFresh) forControlEvents:UIControlEventTouchUpInside];
-   
+    
     UILabel *lbfresh = [UILabel new];
     [self.view addSubview:lbfresh];
     [lbfresh setText:@"-18°C"];
     [lbfresh setTextColor:[UIColor colorWithRed:217/255.0 green:217/255.0 blue:217/255.0 alpha:1.0]];
     [lbfresh setFont:[UIFont fontWithName:@"Arial" size:12]];
     lbfresh.sd_layout
-    .centerXEqualToView(self.btFresh)
-    .topSpaceToView(self.btFresh, 8*rheight)
-    .widthIs(rwith*70)
-    .heightEqualToWidth();
+        .centerXEqualToView(self.btFresh)
+        .topSpaceToView(self.btFresh, 8*rheight)
+        .widthIs(rwith*70)
+        .heightEqualToWidth();
     
     
     //冰淇淋
@@ -212,10 +212,10 @@
     [lbicecream setTextColor:[UIColor colorWithRed:217/255.0 green:217/255.0 blue:217/255.0 alpha:1.0]];
     [lbicecream setFont:[UIFont fontWithName:@"Arial" size:12]];
     lbicecream.sd_layout
-    .centerXEqualToView(self.btIceCream)
-    .topSpaceToView(self.btIceCream, 8*rheight)
-    .widthIs(rwith*70)
-    .heightEqualToWidth();
+        .centerXEqualToView(self.btIceCream)
+        .topSpaceToView(self.btIceCream, 8*rheight)
+        .widthIs(rwith*70)
+        .heightEqualToWidth();
     
     
     //饮料
@@ -236,10 +236,10 @@
     [lbdrink setTextColor:[UIColor colorWithRed:217/255.0 green:217/255.0 blue:217/255.0 alpha:1.0]];
     [lbdrink setFont:[UIFont fontWithName:@"Arial" size:12]];
     lbdrink.sd_layout
-    .centerXEqualToView(self.btDrink)
-    .topSpaceToView(self.btDrink, 8*rheight)
-    .widthIs(rwith*70)
-    .heightEqualToWidth();
+        .centerXEqualToView(self.btDrink)
+        .topSpaceToView(self.btDrink, 8*rheight)
+        .widthIs(rwith*70)
+        .heightEqualToWidth();
     
     
     //水果
@@ -259,10 +259,10 @@
     [lbfruit setTextColor:[UIColor colorWithRed:217/255.0 green:217/255.0 blue:217/255.0 alpha:1.0]];
     [lbfruit setFont:[UIFont fontWithName:@"Arial" size:12]];
     lbfruit.sd_layout
-    .centerXEqualToView(self.btFruit)
-    .topSpaceToView(self.btFruit, 8*rheight)
-    .widthIs(rwith*70)
-    .heightEqualToWidth();
+        .centerXEqualToView(self.btFruit)
+        .topSpaceToView(self.btFruit, 8*rheight)
+        .widthIs(rwith*70)
+        .heightEqualToWidth();
     
     
     //功能区
@@ -271,10 +271,10 @@
     [funcview setBackgroundColor:[UIColor colorWithRed:217/255.0 green:217/255.0 blue:217/255.0 alpha:1.0]];
     [funcview setSd_cornerRadius:@25.0];
     funcview.sd_layout
-    .centerXEqualToView(self.view)
-    .topSpaceToView(self.view, rheight*1388)
-    .heightIs(rheight*100)
-    .widthIs(650*rwith);
+        .centerXEqualToView(self.view)
+        .topSpaceToView(self.view, rheight*1388)
+        .heightIs(rheight*100)
+        .widthIs(650*rwith);
     
     
     //模式
@@ -290,15 +290,15 @@
     [self.btBattery addTarget:self action:@selector(setMode) forControlEvents:UIControlEventTouchUpInside];
     
     //电源背景
-//    UIImageView *btPowerback = [[UIImageView alloc]init];
-//    [self.view addSubview:btPowerback];
-//    btPowerback.sd_layout
-//        .centerXEqualToView(funcview)
-//        .centerYEqualToView(funcview)
-//        .widthIs(70*rwith)
-//        .heightEqualToWidth();
-//    [btPowerback setImage:[UIImage imageNamed:@"powerback"]] ;
-//
+    //    UIImageView *btPowerback = [[UIImageView alloc]init];
+    //    [self.view addSubview:btPowerback];
+    //    btPowerback.sd_layout
+    //        .centerXEqualToView(funcview)
+    //        .centerYEqualToView(funcview)
+    //        .widthIs(70*rwith)
+    //        .heightEqualToWidth();
+    //    [btPowerback setImage:[UIImage imageNamed:@"powerback"]] ;
+    //
     //开关
     UIButton *btPower = [[UIButton alloc]init];
     [funcview addSubview:btPower];
@@ -335,7 +335,7 @@
         .topSpaceToView(self.view, 1546*rheight)
         .heightIs(54*rheight)
         .widthIs(170*rwith);
-  //  [labelUrl adjustsFontSizeToFitWidth];
+    //  [labelUrl adjustsFontSizeToFitWidth];
     
     
     //减号
@@ -347,7 +347,7 @@
         .widthIs(36*rwith)
         .heightIs(6*rheight);
     [self.btMinus setImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
-   // [self.btMinus addTarget:self action:@selector(setMinus) forControlEvents:UIControlEventTouchUpInside];
+    // [self.btMinus addTarget:self action:@selector(setMinus) forControlEvents:UIControlEventTouchUpInside];
     
     //加强减号可用
     UIButton *minuspro = [UIButton new];
@@ -370,7 +370,7 @@
         .widthIs(36*rwith)
         .heightIs(37*rheight);
     [self.btAdd setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
-   // [self.btAdd addTarget:self action:@selector(setAdd) forControlEvents:UIControlEventTouchUpInside];
+    // [self.btAdd addTarget:self action:@selector(setAdd) forControlEvents:UIControlEventTouchUpInside];
     
     //加强减号可用
     UIButton *addspro = [UIButton new];
@@ -390,10 +390,10 @@
     [self.prgview setProgress:0.5];
     [self.prgview setProgressTintColor:[UIColor colorWithRed:12/255.0 green:59/255.0 blue:149/255.0 alpha:1.0]];
     self.prgview.sd_layout
-    .centerXEqualToView(self.view)
-    .centerYIs(1300*rheight)
-    .heightIs(10*rheight)
-    .widthIs(490*rwith);
+        .centerXEqualToView(self.view)
+        .centerYIs(1300*rheight)
+        .heightIs(10*rheight)
+        .widthIs(490*rwith);
     
     //蒙层
     self.viewMusk = [UIView new];
@@ -412,14 +412,14 @@
     [self.viewMusk addSubview:self.viewBattery];
     [self.viewBattery setBackgroundColor:[UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0]];
     self.viewBattery.sd_layout
-          .centerXEqualToView(self.viewMusk)
-          .centerYEqualToView(self.viewMusk)
-          .widthIs(610*rwith)
-          .heightIs(678*rheight);
+        .centerXEqualToView(self.viewMusk)
+        .centerYEqualToView(self.viewMusk)
+        .widthIs(610*rwith)
+        .heightIs(678*rheight);
     self.viewBattery.layer.cornerRadius = 20.0f;
     self.viewBattery.layer.masksToBounds = YES;
     
- 
+    
     //电池保护低
     self.btLow = [UIButton new];
     [self.viewBattery addSubview:self.btLow];
@@ -502,7 +502,7 @@
         .heightIs(678*rheight);
     self.viewTurbo.layer.cornerRadius = 20.f;
     self.viewTurbo.layer.masksToBounds = YES;
-
+    
     
     //Turob模式
     self.btTurbo = [UIButton new];
@@ -526,7 +526,7 @@
         .heightIs(rheight*100)
         .widthIs(610*rwith);
     [self.btEco setTitleColor:[UIColor colorWithRed:194/255.0 green:194/255.0 blue:194/255.0 alpha:1.0] forState:UIControlStateNormal];
-     [self.btEco setTitle:@"ТУРБО режим" forState:UIControlStateNormal];
+    [self.btEco setTitle:@"ТУРБО режим" forState:UIControlStateNormal];
     [self.btEco setBackgroundColor:[UIColor whiteColor]];
     [self.btEco addTarget:self action:@selector(EcoSelected) forControlEvents:UIControlEventTouchUpInside];
     
@@ -580,7 +580,7 @@
     
     //设置断开设备的委托
     [baby setBlockOnDisconnect:^(CBCentralManager *central, CBPeripheral *peripheral, NSError *error) {
-       
+        
         weakSelf.hud = [[MBProgressHUD alloc] initWithView:weakSelf.view];
         [weakSelf.view addSubview:weakSelf.hud];
         weakSelf.hud.mode = MBProgressHUDModeText;
@@ -704,13 +704,13 @@
 //返回
 -(void)setGoback{
     [baby cancelAllPeripheralsConnection];
-//    [self dismissViewControllerAnimated:YES completion:^{
-//        nil;
-//    }];
+    //    [self dismissViewControllerAnimated:YES completion:^{
+    //        nil;
+    //    }];
     DeviceViewController *deviceViewController = [DeviceViewController new];
     deviceViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:deviceViewController animated:YES completion:^{
-            nil;
+        nil;
     }];
     
 }
@@ -953,8 +953,8 @@
 -(void) confirmB{
     [self.viewMusk setHidden:YES];
     [self.viewMuskTurbo setHidden:YES];
-
-  
+    
+    
     
     if(self.characteristic != nil){
         Byte  write[8];
@@ -982,7 +982,7 @@
     [self.btTurbo setBackgroundColor:[UIColor whiteColor]];
     [self.btEco setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.btTurbo setTitleColor:[UIColor colorWithRed:192/255.0 green:192/255.0 blue:192/255.0 alpha:1.0] forState:UIControlStateNormal];
-  
+    
 }
 
 -(void)TurboSelected{
@@ -1063,7 +1063,7 @@
     if(self.dataRead.power == 0){
         [self.btUnit setImage:[UIImage imageNamed:@"FC"] forState:UIControlStateNormal];
         [self.imageCenter setImage:[UIImage imageNamed:@"center1"]];
-       // [self.imageSlide setImage:[UIImage imageNamed:@"btn_huadong"]];
+        // [self.imageSlide setImage:[UIImage imageNamed:@"btn_huadong"]];
         [self.btFresh setImage:[UIImage imageNamed:@"fresh"] forState:UIControlStateNormal];
         [self.btFruit setImage:[UIImage imageNamed:@"fruit"] forState:UIControlStateNormal];
         [self.btDrink setImage:[UIImage imageNamed:@"drink"] forState:UIControlStateNormal];
@@ -1071,14 +1071,14 @@
         [self.lbcurrent setText:@""];
         [self.lbTempSetting setTextColor:[UIColor whiteColor]];
         [self.lbTempSetting setText:@"0°C"];
-
+        
         [self.btAdd setImage:[UIImage imageNamed:@"icon_btn_add"] forState:UIControlStateNormal];
         [self.btMinus setImage:[UIImage imageNamed:@"icon_btn_minus"] forState:UIControlStateNormal];
     }
     
     //开机
     if(self.dataRead.power == 0x01){
-       // [self.imageSnow setImage:[UIImage imageNamed:@"snow"]];
+        // [self.imageSnow setImage:[UIImage imageNamed:@"snow"]];
         [self.btUnit setImage:[UIImage imageNamed:@"fahre"] forState:UIControlStateNormal];
         switch (self.style) {
             case 1:
@@ -1115,20 +1115,23 @@
             self.lbcurrent.text = [NSString stringWithFormat:@"%@:%d°C",NSLocalizedString(@"current", nil), self.dataRead.temReal];
         }
         
-      
+        
         NSString *slidetem;
-        //选择冷藏
-      //  if(self.oreition==0){
-            if(scale == 0 ){ //实际华氏
-                self.lbTempSetting.text = [NSString stringWithFormat:@"%d°F",(int)(setting*1.8+ 32)];
-                [self.btUnit setImage:[UIImage imageNamed:@"fahre"] forState:UIControlStateNormal];
-            }else{   // 实际摄氏
-                self.lbTempSetting.text = [NSString stringWithFormat:@"%d°C",setting];
-                [self.btUnit setImage:[UIImage imageNamed:@"ceils"] forState:UIControlStateNormal];
-            }
-            slidetem = [NSString stringWithFormat:@"%d",setting];
+        
+        if(scale == 0 ){ //实际华氏
+            self.lbTempSetting.text = [NSString stringWithFormat:@"%d°F",(int)(setting*1.8+ 32)];
+            [self.btUnit setImage:[UIImage imageNamed:@"fahre"] forState:UIControlStateNormal];
+        }else{   // 实际摄氏
+            self.lbTempSetting.text = [NSString stringWithFormat:@"%d°C",setting];
+            [self.btUnit setImage:[UIImage imageNamed:@"ceils"] forState:UIControlStateNormal];
+        }
+        
+        slidetem = [NSString stringWithFormat:@"%d",setting];
+        if([self.strtype isEqualToString:@"IC23"]){
             [self.prgview setProgress:(setting-(-18.0))/28.0];
-
+        }else{
+            [self.prgview setProgress:(setting-(-20.0))/30.0];
+        }
     }
     
 }
