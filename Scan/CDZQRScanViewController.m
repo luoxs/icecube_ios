@@ -87,7 +87,7 @@
     }
    // [self showAlert:result action:nil];
     NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:result,@"qrvalue", nil];
-    NSNotification *notification =[NSNotification notificationWithName:@"tongzhi" object:nil userInfo:dict];
+    NSNotification *notification =[NSNotification notificationWithName:@"device" object:nil userInfo:dict];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -99,7 +99,7 @@
     [scanView stopScanning];
     
     NSDictionary *dict =[[NSDictionary alloc]initWithObjectsAndKeys:message,@"qrvalue", nil];
-    NSNotification *notification =[NSNotification notificationWithName:@"tongzhi" object:nil userInfo:dict];
+    NSNotification *notification =[NSNotification notificationWithName:@"device" object:nil userInfo:dict];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
     
     [self.navigationController popViewControllerAnimated:YES];

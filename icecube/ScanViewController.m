@@ -43,6 +43,7 @@
     [self setAutoLayout];
     baby = [BabyBluetooth shareBabyBluetooth];
     [self babyDelegate];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recievemessage:) name:@"device" object:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -257,6 +258,48 @@
     [self presentViewController:alertViewController animated:YES completion:^{
         nil;
     }];
+}
+
+
+
+-(void)recievemessage:(NSNotification *)text{
+    NSString *message = [NSString stringWithFormat:@"%@",text.userInfo[@"qrvalue"]];
+    NSString *strtype = [[NSString alloc]init];
+    
+    if(message.length>=10){
+        NSArray *strs = [message componentsSeparatedByString:@"="];
+        if(strs.count >=2){
+            strtype = [strs objectAtIndex:2];
+        }
+    }
+    NSLog(@"---------%@",strtype);
+    
+    for(CBPeripheral *peripheral in self.devices){
+        if([peripheral.name isEqualToString:strtype]){
+            [self.viewMusk setHidden:YES];
+            [baby.centralManager stopScan];
+            [baby cancelAllPeripheralsConnection];
+            [baby.centralManager connectPeripheral:peripheral options:nil];
+            //2.停止会话
+            [self.session stopRunning];
+            //3.移除预览图层
+            [self.layer removeFromSuperlayer];
+            return;
+        }
+    }
+    
+    //没有找到设备
+    self.hud.mode = MBProgressHUDModeText;
+    [self.view addSubview:self.hud];
+    self.hud.label.text = @"Device not found!";
+    [self.hud setMinShowTime:3];
+    [self.hud showAnimated:YES];
+    [self.hud hideAnimated:YES];
+    
+    //2.停止会话
+    [self.session stopRunning];
+    //3.移除预览图层
+    [self.layer removeFromSuperlayer];
 }
 
 
