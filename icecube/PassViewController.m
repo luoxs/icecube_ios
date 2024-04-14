@@ -120,8 +120,9 @@
     self.tfPass1.clearsOnBeginEditing = YES;
     [ self.view addSubview:self.tfPass1];
     self.tfPass1.font = [UIFont fontWithName:@"Arial" size:25];
-    [self.tfPass1 addTarget:self action:@selector(textFiledDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.tfPass1 addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     self.tfPass1.delegate = self;
+    [self.tfPass1 setKeyboardType:UIKeyboardTypeASCIICapable];
    // [self.tfPass1 addTarget:self action:@selector(touched:) forControlEvents:UIControlEventTouchUpInside];
     
     
@@ -140,8 +141,9 @@
     self.tfPass2.clearsOnBeginEditing = YES;
     [ self.view addSubview:self.tfPass2];
     self.tfPass2.font = [UIFont fontWithName:@"Arial" size:25];
-    [self.tfPass2 addTarget:self action:@selector(textFiledDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.tfPass2 addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     self.tfPass2.delegate = self;
+    [self.tfPass2 setKeyboardType:UIKeyboardTypeASCIICapable];
     
     CGRect rectPass3 = CGRectMake(508*rwidth, 630*rheight, 108*rwidth, 108*rwidth);
     self.tfPass3 = [[UITextField alloc] initWithFrame:rectPass3];
@@ -157,9 +159,9 @@
     self.tfPass3.clearsOnBeginEditing = YES;
     [ self.view addSubview:self.tfPass3];
     self.tfPass3.font = [UIFont fontWithName:@"Arial" size:25];
-    [self.tfPass3 addTarget:self action:@selector(textFiledDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.tfPass3 addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     self.tfPass3.delegate = self;
-
+    [self.tfPass3 setKeyboardType:UIKeyboardTypeASCIICapable];
 }
 
 
@@ -333,39 +335,56 @@
      return NO;
      }];
 }
+//
+//- (void)textFiledDidChange:(UITextField *)textField{
+//
+//
+//    textField.layer.borderWidth = 0.0;
+//    [textField.layer setBackgroundColor: [[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1.0] CGColor]];
+//
+//    unsigned long length = textField.text.length;
+//    NSLog(@"length :%ld",length);
+//    NSString *str = textField.text;
+//    if (length > 1) {
+//        str = [textField.text substringToIndex:1];
+//    }
+//    textField.text = str;
+//    NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+//    paragraphStyle.alignment = NSTextAlignmentCenter;
+//    textField.attributedPlaceholder = [NSAttributedString.alloc initWithString:str attributes:@{NSParagraphStyleAttributeName:paragraphStyle}];
+//
+//
+//    if([textField isEqual:self.tfPass1]){
+//        [textField resignFirstResponder];
+//        [self.tfPass2  becomeFirstResponder];
+//    }
+//
+//    if([textField isEqual:self.tfPass2]){
+//        [textField resignFirstResponder];
+//        [self.tfPass3 becomeFirstResponder];
+//    }
+//
+//    if((self.tfPass1.text.length + self.tfPass2.text.length + self.tfPass3.text.length )== 3){
+//        [textField resignFirstResponder];
+//        [self confirmPa];
+//    }
+//}
 
-- (void)textFiledDidChange:(UITextField *)textField{
-    
-    textField.layer.borderWidth = 0.0;
-    [textField.layer setBackgroundColor: [[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1.0] CGColor]];
-    
-    unsigned long length = textField.text.length;
-    NSLog(@"length :%ld",length);
-    NSString *str = textField.text;
-    if (length > 1) {
-        str = [textField.text substringToIndex:1];
-    }
-    textField.text = str;
-    NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
-    paragraphStyle.alignment = NSTextAlignmentCenter;
-    textField.attributedPlaceholder = [NSAttributedString.alloc initWithString:str attributes:@{NSParagraphStyleAttributeName:paragraphStyle}];
-    
-    
-    if([textField isEqual:self.tfPass1]){
-        [textField resignFirstResponder];
-        [self.tfPass2  becomeFirstResponder];
-    }
-    
-    if([textField isEqual:self.tfPass2]){
-        [textField resignFirstResponder];
-        [self.tfPass3 becomeFirstResponder];
-    }
-    
-    if((self.tfPass1.text.length + self.tfPass2.text.length + self.tfPass3.text.length )== 3){
-        [textField resignFirstResponder];
-        [self confirmPa];
+-(void)textFieldDidChange :(UITextField *)textField{
+    if (textField.text.length == 1) {
+        if (textField == self.tfPass1) {
+            [self.tfPass2 becomeFirstResponder];
+        }else if (textField == self.tfPass2){
+            [self.tfPass3 becomeFirstResponder];
+        }else{
+            [self.view endEditing:YES];
+            [self confirmPa];
+        }
+        NSString *str = textField.text;
+        NSLog(@"----%@",str);
     }
 }
+
 
 //确认密码
 -(void) confirmPa{
