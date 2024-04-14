@@ -175,7 +175,9 @@
   //  [self pushViewController:vc animated:YES];
     [self.navigationController setNavigationBarHidden:NO];
     [self.navigationController pushViewController:vc animated:YES];
+
 }
+
 
 
 -(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
@@ -185,27 +187,37 @@
         AVMetadataMachineReadableCodeObject *object = [metadataObjects lastObject];
         NSLog(@"扫描的内容==%@",object.stringValue);
         NSString *strtype = [[NSString alloc]init];
-        if(object.stringValue.length>=40){
-            strtype = [object.stringValue substringWithRange:NSMakeRange(32, 8)];
-        }
+//        if(object.stringValue.length>=40){
+//            strtype = [object.stringValue substringWithRange:NSMakeRange(32, 8)];
+//        }
         
-        int i=0;
-        for(i=0;i<self.devices.count;i++){
-            if([[self.devices objectAtIndex:i].name hasPrefix:strtype]){
+        NSDictionary *dicparas = [self  paramerWithURL:object.stringValue];
+        strtype = [dicparas objectForKey:@"BLE"];
+        
+        NSLog(@"---------%@",strtype);
+        
+        for(CBPeripheral *peripheral in self.devices){
+            if([peripheral.name isEqualToString:strtype]){
+                [self.viewMusk setHidden:YES];
                 [baby.centralManager stopScan];
                 [baby cancelAllPeripheralsConnection];
-                [baby.centralManager connectPeripheral:[self.devices objectAtIndex:i] options:nil];
+                [baby.centralManager connectPeripheral:peripheral options:nil];
+                //2.停止会话
+                [self.session stopRunning];
+                //3.移除预览图层
+                [self.layer removeFromSuperlayer];
+                return;
             }
         }
+        
         //没有找到设备
-        if(i==self.devices.count){
-            self.hud.mode = MBProgressHUDModeText;
-            [self.view addSubview:self.hud];
-            self.hud.label.text = @"устройство не найдено";
-            [self.hud setMinShowTime:3];
-            [self.hud showAnimated:YES];
-            [self.hud hideAnimated:YES];
-        }
+        self.hud.mode = MBProgressHUDModeText;
+        [self.view addSubview:self.hud];
+        self.hud.label.text = @"Device not found!";
+        [self.hud setMinShowTime:3];
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated:YES];
+        
     
         //2.停止会话
         [self.session stopRunning];
