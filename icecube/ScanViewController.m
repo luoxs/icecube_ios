@@ -38,16 +38,11 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     // Do any additional setup after loading the view.
     self.hud = [[MBProgressHUD alloc]init];
-    
     self.dataRead = [[DataRead alloc] init];
-
     self.devices = [[NSMutableArray alloc]init];
-    
     [self setAutoLayout];
     baby = [BabyBluetooth shareBabyBluetooth];
     [self babyDelegate];
-
-    // Do any additional setup after loading the view.
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -57,9 +52,7 @@
     baby.scanForPeripherals().begin();
 }
 
-
 -(void)setAutoLayout{
-    
     float rwith = self.view.size.width/750.0;
     float rheight = self.view.size.height/1624.0;
     
@@ -72,7 +65,7 @@
         .topSpaceToView(self.view, 116*rheight)
         .heightIs(36*rheight)
         .widthIs(36*rwith);
-   // [btreturn addTarget:self action:@selector(backhome) forControlEvents:UIControlEventTouchUpInside];
+    [btreturn addTarget:self action:@selector(backhome) forControlEvents:UIControlEventTouchUpInside];
     
     //返回键遮罩
     UIButton *btmask = [UIButton new];
@@ -290,18 +283,18 @@
     
     //设置连接设备失败的委托
     [baby setBlockOnFailToConnect:^(CBCentralManager *central, CBPeripheral *peripheral, NSError *error) {
-        //        weakSelf.hud.label.text = @"Device connected failed!\nPlease check the bluetooth!";
-        //        [weakSelf.hud setMinShowTime:1];
-        //        [weakSelf.hud showAnimated:YES];
-        //        [weakSelf.hud hideAnimated:YES];
+                weakSelf.hud.label.text = @"Не удалось подключить устройство! \nПожалуйста, проверьте Bluetooth!";
+                [weakSelf.hud setMinShowTime:1];
+                [weakSelf.hud showAnimated:YES];
+                [weakSelf.hud hideAnimated:YES];
     }];
     
     //设置断开设备的委托
     [baby setBlockOnDisconnect:^(CBCentralManager *central, CBPeripheral *peripheral, NSError *error) {
-        //        weakSelf.hud.mode = MBProgressHUDModeIndeterminate;
-        //        weakSelf.hud.label.text = @"Disconnet devices";
-        //        [weakSelf.hud setMinShowTime:1];
-        //        [weakSelf.hud showAnimated:YES];
+                weakSelf.hud.mode = MBProgressHUDModeIndeterminate;
+                weakSelf.hud.label.text = @"устройство отключено";
+                [weakSelf.hud setMinShowTime:1];
+                [weakSelf.hud showAnimated:YES];
     }];
     
     //设置设备连接成功的委托
@@ -340,7 +333,6 @@
                     weakSelf.bytePass1 = (int)strtoul([[weakSelf.strpass substringWithRange:NSMakeRange(0, 1)] UTF8String],0,16);
                     weakSelf.bytePass2 = (int)strtoul([[weakSelf.strpass substringWithRange:NSMakeRange(1, 1)] UTF8String],0,16);
                     weakSelf.bytePass3 = (int)strtoul([[weakSelf.strpass substringWithRange:NSMakeRange(2, 1)] UTF8String],0,16);
-//                    [weakSelf.body setHidden:YES];
                     
                     if(self.characteristic != nil){
                         Byte  write[8];
@@ -478,11 +470,10 @@
 -(void)updateStatus{
     //有返回非零数字，密码正确。保存密码
     if( self.dataRead.type!= 0 ){
-     //   [self.viewMusk setHidden:YES];
-        //  [baby.centralManager  stopScan];
+
         [self.hud setHidden:YES];
         [self.hud removeFromSuperview];
-        //[self.viewMusk removeFromSuperview];
+
         
         MainViewController *mainViewController = [[MainViewController alloc]init];
         [mainViewController setModalPresentationStyle:UIModalPresentationFullScreen];

@@ -152,6 +152,9 @@
     }else{
         scanViewController.strtype = @"IC63";
     }
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:scanViewController.strtype forKey:@"strtype"];  //冰箱类型
+    
     [self.nav setViewControllers:[NSArray arrayWithObject:scanViewController]];
     [self presentViewController:self.nav animated:YES completion:^{
         nil;
@@ -160,6 +163,7 @@
 //    [self presentViewController:scanViewController animated:YES completion:^{
 //            nil;
 //    }];
+   
 }
 
 @end
