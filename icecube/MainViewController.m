@@ -45,9 +45,8 @@
 @property(nonatomic,strong) UIButton *btLow;
 @property(nonatomic,strong) UIButton *btMiddle;
 @property(nonatomic,strong) UIButton *btHigh;
-//@property(nonatomic,strong) UIButton *btLeft;
-//@property(nonatomic,strong) UIButton *btRight;
 @property(nonatomic,strong) UIButton *btConfirmB;
+@property(nonatomic,retain) NSString *strtype;
 
 //加强模式
 @property(nonatomic,strong) UIView *viewMuskTurbo;
@@ -66,9 +65,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
- //   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(languageChange:) name:GHLNotificationLanguageChanged object:nil];
-    // Do any additional setup after loading the view.
-    //self.oreition = 0;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.strtype = [defaults objectForKey:@"strtype"];
     
     [self setAutoLayout];
     [self getStoredPass];
@@ -98,9 +96,6 @@
 
 
 -(void)setAutoLayout{
-    
-    //    float mwith = self.view.frame.size.width;
-    //    float mheight = self.view.frame.size.height;
     
     float rwith = self.view.size.width/750.0;
     float rheight = self.view.size.height/1622.0;
@@ -352,7 +347,18 @@
         .widthIs(36*rwith)
         .heightIs(6*rheight);
     [self.btMinus setImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
-    [self.btMinus addTarget:self action:@selector(setMinus) forControlEvents:UIControlEventTouchUpInside];
+   // [self.btMinus addTarget:self action:@selector(setMinus) forControlEvents:UIControlEventTouchUpInside];
+    
+    //加强减号可用
+    UIButton *minuspro = [UIButton new];
+    [self.view addSubview:minuspro];
+    [minuspro setBackgroundColor:[UIColor clearColor]];
+    minuspro.sd_layout
+        .centerXIs(80*rwith)
+        .centerYIs(1300*rheight)
+        .widthIs(100*rwith)
+        .heightIs(50*rheight);
+    [minuspro addTarget:self action:@selector(setMinus) forControlEvents:UIControlEventTouchUpInside];
     
     //加号
     // UIButton *btAdd = [[UIButton alloc]init];
@@ -364,7 +370,20 @@
         .widthIs(36*rwith)
         .heightIs(37*rheight);
     [self.btAdd setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
-    [self.btAdd addTarget:self action:@selector(setAdd) forControlEvents:UIControlEventTouchUpInside];
+   // [self.btAdd addTarget:self action:@selector(setAdd) forControlEvents:UIControlEventTouchUpInside];
+    
+    //加强减号可用
+    UIButton *addspro = [UIButton new];
+    [self.view addSubview:addspro];
+    [addspro setBackgroundColor:[UIColor clearColor]];
+    addspro.sd_layout
+        .centerXIs(670*rwith)
+        .centerYIs(1300*rheight)
+        .widthIs(100*rwith)
+        .heightIs(50*rheight);
+    [addspro addTarget:self action:@selector(setAdd) forControlEvents:UIControlEventTouchUpInside];
+    
+    
     
     self.prgview = [UIProgressView new];
     [self.view addSubview:self.prgview];
@@ -885,6 +904,15 @@
 
 
 -(void) setMode{
+    if([self.strtype isEqualToString: @"IC23"]){
+        self.hud = [MBProgressHUD new];
+        [self.view addSubview:self.hud];
+        [self.hud setMode:MBProgressHUDModeText];
+        self.hud.label.text = @"Извините, эта функция недоступна！";
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated:YES afterDelay:2];
+        return;
+    }
     [self.viewMusk setHidden:NO];
 }
 
@@ -925,8 +953,9 @@
 -(void) confirmB{
     [self.viewMusk setHidden:YES];
     [self.viewMuskTurbo setHidden:YES];
-    //Byte scale = self.dataRead.unit;
-    //scale = scale^0x01;
+
+  
+    
     if(self.characteristic != nil){
         Byte  write[8];
         write[0] = 0xAA;
@@ -1032,7 +1061,6 @@
     
     //关机
     if(self.dataRead.power == 0){
-      //  [self.imageSnow setImage:[UIImage imageNamed:@"icon_snow"]];
         [self.btUnit setImage:[UIImage imageNamed:@"FC"] forState:UIControlStateNormal];
         [self.imageCenter setImage:[UIImage imageNamed:@"center1"]];
        // [self.imageSlide setImage:[UIImage imageNamed:@"btn_huadong"]];
@@ -1043,9 +1071,7 @@
         [self.lbcurrent setText:@""];
         [self.lbTempSetting setTextColor:[UIColor whiteColor]];
         [self.lbTempSetting setText:@"0°C"];
-      //  [self.btMode setImage:[UIImage imageNamed:@"icon_btn_t"] forState:UIControlStateNormal];
-     //   [self.btBattery setImage:[UIImage imageNamed:@"icon_btn_m"] forState:UIControlStateNormal];
-        
+
         [self.btAdd setImage:[UIImage imageNamed:@"icon_btn_add"] forState:UIControlStateNormal];
         [self.btMinus setImage:[UIImage imageNamed:@"icon_btn_minus"] forState:UIControlStateNormal];
     }
@@ -1079,19 +1105,13 @@
                 [self.btFruit setImage:[UIImage imageNamed:@"fruit"] forState:UIControlStateNormal];
                 break;
         }
-        // [self.imageCenter setImage:[UIImage imageNamed:@"center"]];
-      //  [self.imageSlide setImage:[UIImage imageNamed:@"滑动"]];
-       // [self.btMode setImage:[UIImage imageNamed:@"turbo"] forState:UIControlStateNormal];
-      //  [self.btBattery setImage:[UIImage imageNamed:@"mode"] forState:UIControlStateNormal];
         [self.btAdd setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
         [self.btMinus setImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
         
         
         if(scale == 0){ //实际华氏
-            //self.lbcurrent.text = [NSString stringWithFormat:@"Current Temp:%d°F",(int)(self.dataRead.temReal*1.8+ 32)];
             self.lbcurrent.text = [NSString stringWithFormat:  @"%@:%d°F",NSLocalizedString(@"current", nil), (int)(self.dataRead.temReal*1.8+ 32)];
         }else{   // 实际摄氏
-            //self.lbcurrent.text = [NSString stringWithFormat:@"Current Temp:%d°C",self.dataRead.temReal];
             self.lbcurrent.text = [NSString stringWithFormat:@"%@:%d°C",NSLocalizedString(@"current", nil), self.dataRead.temReal];
         }
         
@@ -1108,20 +1128,7 @@
             }
             slidetem = [NSString stringWithFormat:@"%d",setting];
             [self.prgview setProgress:(setting-(-18.0))/28.0];
-            
-//
-//        }else{
-//            if(scale == 0 ){ //实际华氏
-//                self.lbTempSetting.text = [NSString stringWithFormat:@"%d°F",(int)(frese*1.8+ 32)];
-//                [self.btUnit setImage:[UIImage imageNamed:@"fahre"] forState:UIControlStateNormal];
-//            }else{   // 实际摄氏
-//                self.lbTempSetting.text = [NSString stringWithFormat:@"%d°C",frese];
-//                [self.btUnit setImage:[UIImage imageNamed:@"ceils"] forState:UIControlStateNormal];
-//            }
-//            slidetem = [NSString stringWithFormat:@"%d",frese];
-//        }
-     //   [self.imageSlide setImage:[UIImage imageNamed:slidetem]];
-        
+
     }
     
 }
