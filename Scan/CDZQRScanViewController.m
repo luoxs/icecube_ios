@@ -21,12 +21,14 @@
     [super viewDidLoad];
     [self setupViews];
     [self.scanView startScanning];
+    self.navigationController.navigationBar.topItem.leftBarButtonItem.title  = @"назад";
+    [self.navigationItem.rightBarButtonItem setTitle:@"альбом"];
 }
 
 
 - (void)setupViews{
     self.view.backgroundColor = [UIColor blackColor];
-    UIBarButtonItem *libaryItem = [[UIBarButtonItem alloc]initWithTitle:@"Album" style:UIBarButtonItemStylePlain target:self action:@selector(openLibary)];
+    UIBarButtonItem *libaryItem = [[UIBarButtonItem alloc]initWithTitle:@"назад" style:UIBarButtonItemStylePlain target:self action:@selector(openLibary)];
     self.navigationItem.rightBarButtonItem = libaryItem;
    // self.navigationItem.title = @"scan device";
     [self.view addSubview:self.scanView];
@@ -35,7 +37,7 @@
 
 - (void)openLibary{
     if (![self isLibaryAuthStatusCorrect]) {
-        [self showAlert:@"require permission to use album" action:nil];
+        [self showAlert:@"требуется разрешение на использование альбома" action:nil];
         return;
     }
     [self presentViewController:self.imagePicker animated:YES completion:nil];
@@ -82,7 +84,7 @@
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     NSString *result = [self messageFromQRCodeImage:image];
     if (result.length == 0) {
-        [self showAlert:@"cannot find a qr code" action:nil];
+        [self showAlert:@"не могу найти qr-код" action:nil];
         return;
     }
    // [self showAlert:result action:nil];

@@ -513,7 +513,7 @@
         .heightIs(rheight*100)
         .widthIs(610*rwith);
     [self.btTurbo setTitleColor:[UIColor colorWithRed:194/255.0 green:194/255.0 blue:194/255.0 alpha:1.0] forState:UIControlStateNormal];
-    [self.btTurbo setTitle:@"ЭКО режим" forState:UIControlStateNormal];
+    [self.btTurbo setTitle:@"ТУРБО режим" forState:UIControlStateNormal];
     [self.btTurbo setBackgroundColor:[UIColor whiteColor]];
     [self.btTurbo addTarget:self action:@selector(TurboSelected) forControlEvents:UIControlEventTouchUpInside];
     
@@ -526,7 +526,7 @@
         .heightIs(rheight*100)
         .widthIs(610*rwith);
     [self.btEco setTitleColor:[UIColor colorWithRed:194/255.0 green:194/255.0 blue:194/255.0 alpha:1.0] forState:UIControlStateNormal];
-    [self.btEco setTitle:@"ТУРБО режим" forState:UIControlStateNormal];
+    [self.btEco setTitle:@"ЭКО режим" forState:UIControlStateNormal];
     [self.btEco setBackgroundColor:[UIColor whiteColor]];
     [self.btEco addTarget:self action:@selector(EcoSelected) forControlEvents:UIControlEventTouchUpInside];
     
@@ -1110,9 +1110,9 @@
         
         
         if(scale == 0){ //实际华氏
-            self.lbcurrent.text = [NSString stringWithFormat:  @"%@:%d°F",NSLocalizedString(@"current", nil), (int)(self.dataRead.temReal*1.8+ 32)];
+            self.lbcurrent.text = [NSString stringWithFormat:  @"%@:%d°F",@"current",(int)(self.dataRead.temReal*1.8+ 32)];
         }else{   // 实际摄氏
-            self.lbcurrent.text = [NSString stringWithFormat:@"%@:%d°C",NSLocalizedString(@"current", nil), self.dataRead.temReal];
+            self.lbcurrent.text = [NSString stringWithFormat:@"%@:%d°C",@"current", self.dataRead.temReal];
         }
         
         
