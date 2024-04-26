@@ -23,6 +23,7 @@
 @property (nonatomic,strong) UIButton *btclose;
 @property (nonatomic,retain) AVCaptureSession *session; //扫描二维码会话
 @property (nonatomic,retain) AVCaptureVideoPreviewLayer *layer;
+@property (nonatomic,retain)  NSString *strPereiName;
 
 @property(nonatomic,strong) NSString *strpass;
 @property Byte bytePass1;
@@ -40,6 +41,7 @@
     self.hud = [[MBProgressHUD alloc]init];
     self.dataRead = [[DataRead alloc] init];
     self.devices = [[NSMutableArray alloc]init];
+    self.strPereiName = [NSString new];
     [self setAutoLayout];
     baby = [BabyBluetooth shareBabyBluetooth];
     [self babyDelegate];
@@ -239,7 +241,22 @@
         [alertViewController addAction:noaction];
     }
     for(CBPeripheral *pereipheral in self.devices){
-        UIAlertAction *action = [UIAlertAction actionWithTitle:pereipheral.name style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"%@-----",pereipheral.name);
+       
+        if(pereipheral.name != nil){
+          
+            self.strPereiName = pereipheral.name;
+        }else{
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            self.strPereiName = [defaults objectForKey:@"advertisename"];
+        }
+        if(self.strPereiName == nil){
+            self.strPereiName = @"без имени";
+        }
+        
+       // UIAlertAction *action = [UIAlertAction actionWithTitle:pereipheral.name style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *action = [UIAlertAction actionWithTitle:self.strPereiName style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
             [self->baby.centralManager stopScan];
             [self->baby cancelAllPeripheralsConnection];
             [self->baby.centralManager connectPeripheral:pereipheral options:nil];
@@ -291,7 +308,7 @@
     //没有找到设备
     self.hud.mode = MBProgressHUDModeText;
     [self.view addSubview:self.hud];
-    self.hud.label.text = @"Device not found!";
+    self.hud.label.text = @"Не удалось найти оборудование!";
     [self.hud setMinShowTime:3];
     [self.hud showAnimated:YES];
     [self.hud hideAnimated:YES];
@@ -324,12 +341,20 @@
     [baby setBlockOnDiscoverToPeripherals:^(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI) {
         
         NSString *advertiseName = advertisementData[@"kCBAdvDataLocalName"];
-        NSLog(@"Устройство обнаружено:%@",advertiseName);
+        NSLog(@"advertisename------:%@",advertiseName);
         
-        if([advertiseName hasPrefix:self.strtype] )  {
+        if([advertiseName hasPrefix:weakSelf.strtype] )  {
             [weakSelf.devices addObject:peripheral];
-          //  [baby.centralManager connectPeripheral:peripheral options:nil];
         }
+        
+        if([advertiseName hasPrefix:@"GC"]&&[self.strtype isEqualToString:@"IC43"]){
+            [weakSelf.devices addObject:peripheral];
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:advertiseName forKey:@"advertisename"];
+            
+        }
+        
         // [weakSelf.tableView reloadData];
         if([weakSelf.devices count]>3){
             [central stopScan];
@@ -492,6 +517,11 @@
             isFirst = NO;
             return YES;
         }
+        if(isFirst && [advertisementData[@"kCBAdvDataLocalName"] hasPrefix:@"GC"] && [self.strtype isEqualToString:@"IC43"]){
+            isFirst = NO;
+            return YES;
+        }
+
         return NO;
     }];
 }
