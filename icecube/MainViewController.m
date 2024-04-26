@@ -34,10 +34,8 @@
 @property Byte bytePass2;
 @property Byte bytePass3;
 
-
 @property Byte Turbo;
 @property Byte Battery;
-//@property Byte oreition;
 
 //电池保护
 @property(nonatomic,strong) UIView *viewMusk;
@@ -58,6 +56,8 @@
 @property(nonatomic, strong) NSTimer *timer;
 @property(nonatomic,strong) MBProgressHUD *hud;
 @property int style;  //保鲜模式
+@property int tag;
+
 @end
 
 @implementation MainViewController
@@ -76,8 +76,8 @@
     [self.viewMuskTurbo setHidden:YES];
     
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        // [self getStatus];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        [self getStatus];
     }];
 }
 
@@ -92,6 +92,7 @@
 
 -(void) viewWillDisappear:(BOOL)animated{
     [self.timer invalidate];
+    self.timer = nil;
 }
 
 
@@ -145,7 +146,7 @@
     [self.lbTempSetting setBackgroundColor:[UIColor clearColor]];
     [self.lbTempSetting setTextColor:[UIColor whiteColor]];
     self.lbTempSetting.text = @"0°C";
-    [self.lbTempSetting  setFont:[UIFont fontWithName:@"DINAlternate-Bold" size:54]];
+    [self.lbTempSetting  setFont:[UIFont fontWithName:@"DINAlternate-Bold" size:50]];
     [self.lbTempSetting  setTextColor:[UIColor whiteColor]];
     [self.lbTempSetting sizeToFit];
     
@@ -684,6 +685,11 @@
                 weakSelf.dataRead.crcl = r[20];   //CRC校验低八位
                 weakSelf.dataRead.end = r[21];  //通信结束
                 [weakSelf updateStatus];
+                [weakSelf.timer invalidate];
+                if(weakSelf.tag == 1){
+                    [weakSelf updateReal];
+                    weakSelf.tag = 0;
+                }
             }
         }
     }];
@@ -707,6 +713,7 @@
 
 //获取状态
 -(void) getStatus{
+    self.tag = 1;  //显示实时温度或设置温度
     if(self.characteristic != nil){
         Byte  write[8];
         write[0] = 0xAA;
@@ -728,15 +735,11 @@
 //返回
 -(void)setGoback{
     [baby cancelAllPeripheralsConnection];
-    //    [self dismissViewControllerAnimated:YES completion:^{
-    //        nil;
-    //    }];
     DeviceViewController *deviceViewController = [DeviceViewController new];
     deviceViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:deviceViewController animated:YES completion:^{
         nil;
     }];
-    
 }
 
 
@@ -1066,6 +1069,7 @@
 
 -(void) updateStatus{
     //[self.btMinus setImage:nil forState:UIControlStateNormal];
+    [self.timer isValid];
     
     int setting = self.dataRead.temsetting;
     int real = self.dataRead.temReal;
@@ -1131,14 +1135,7 @@
         }
         [self.btAdd setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
         [self.btMinus setImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
-        
-        
-        if(scale == 0){ //实际华氏
-            self.lbcurrent.text = [NSString stringWithFormat:  @"%@:%d°F",@"current",(int)(self.dataRead.temReal*1.8+ 32)];
-        }else{   // 实际摄氏
-            self.lbcurrent.text = [NSString stringWithFormat:@"%@:%d°C",@"current", self.dataRead.temReal];
-        }
-        
+    
         
         NSString *slidetem;
         
@@ -1157,8 +1154,19 @@
             [self.prgview setProgress:(setting-(-20.0))/30.0];
         }
     }
-    
 }
+
+-(void) updateReal{
+    int scale = self.dataRead.unit;
+    if(scale == 0){ //实际华氏
+        self.lbTempSetting.text = [NSString stringWithFormat:  @"%d°F",(int)(self.dataRead.temReal*1.8+ 32)];
+    }else{   // 实际摄氏
+        self.lbTempSetting.text = [NSString stringWithFormat:@"%d°C", self.dataRead.temReal];
+    }
+}
+
+
+
 /*
  #pragma mark - Navigation
  
