@@ -24,6 +24,7 @@
 -(void)setAutoLayout{
     float rwith = self.view.size.width/750.0;
     float rheight = self.view.size.height/1624.0;
+    [self.view setBackgroundColor:[UIColor whiteColor]];
 
     //logo
     UIImageView *imagelogo = [UIImageView new];
