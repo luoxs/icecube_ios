@@ -599,12 +599,18 @@
     //设置断开设备的委托
     [baby setBlockOnDisconnect:^(CBCentralManager *central, CBPeripheral *peripheral, NSError *error) {
         
-        weakSelf.hud = [[MBProgressHUD alloc] initWithView:weakSelf.view];
-        [weakSelf.view addSubview:weakSelf.hud];
-        weakSelf.hud.mode = MBProgressHUDModeText;
-        weakSelf.hud.label.text = NSLocalizedString(@"disconnect", nil);
-        [weakSelf.hud hideAnimated:YES afterDelay:5];
+        UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:@"Bluetooth отключен"  message:@"Пожалуйста, вернитесь на главную страницу, чтобы повторно подключить Bluetooth" preferredStyle:UIAlertControllerStyleAlert];
+        
+            UIAlertAction *actionreturn = [UIAlertAction actionWithTitle:@"хорошо" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [weakSelf setGoback];
+            }];
+            [alertViewController addAction:actionreturn];
+        
+        [weakSelf presentViewController:alertViewController animated:YES completion:^{
+            nil;
+        }];
     }];
+    
     
     //设置设备连接成功的委托
     [baby setBlockOnConnected:^(CBCentralManager *central, CBPeripheral *peripheral) {
