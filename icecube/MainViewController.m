@@ -323,20 +323,32 @@
     [ self.btMode addTarget:self action:@selector(setTurbo) forControlEvents:UIControlEventTouchUpInside];
     
     
-    UILabel  *labelUrl = [UILabel new];
-    [self.view addSubview:labelUrl];
-    [labelUrl setText:@"www.icecube.ru"];
+//    UILabel  *labelUrl = [UILabel new];
+//    [self.view addSubview:labelUrl];
+//    [labelUrl setText:@"www.icecube.ru"];
+//
+//    [labelUrl setTextAlignment:NSTextAlignmentCenter];
+//    labelUrl.font = [UIFont fontWithName:@"Arial" size:12.0];
+//    [labelUrl setTextColor:[UIColor colorWithRed:11.0/255 green:57.0/255 blue:148.0/255 alpha:1.0]];
+//    labelUrl.sd_layout
+//        .centerXEqualToView(self.view)
+//        .topSpaceToView(self.view, 1546*rheight)
+//        .heightIs(54*rheight)
+//        .widthIs(170*rwith);
+//    //  [labelUrl adjustsFontSizeToFitWidth];
+//
     
-    [labelUrl setTextAlignment:NSTextAlignmentCenter];
-    labelUrl.font = [UIFont fontWithName:@"Arial" size:12.0];
-    [labelUrl setTextColor:[UIColor colorWithRed:11.0/255 green:57.0/255 blue:148.0/255 alpha:1.0]];
-    labelUrl.sd_layout
+    UIButton  *btUrl = [UIButton new];
+    [self.view addSubview:btUrl];
+    [btUrl setTitle:@"www.icecube.ru" forState:UIControlStateNormal];
+    [btUrl setTitleColor:[UIColor colorWithRed:11.0/255 green:57.0/255 blue:148.0/255 alpha:1.0] forState:UIControlStateNormal];
+    btUrl.sd_layout
         .centerXEqualToView(self.view)
         .topSpaceToView(self.view, 1546*rheight)
         .heightIs(54*rheight)
-        .widthIs(170*rwith);
-    //  [labelUrl adjustsFontSizeToFitWidth];
-    
+        .widthIs(300*rwith);
+    [btUrl addTarget:self action:@selector(gosite) forControlEvents:UIControlEventTouchUpInside];
+
     
     //减号
     self.btMinus = [[UIButton alloc]init];
@@ -546,9 +558,15 @@
     [self.btConfirmT setBackgroundColor:[UIColor whiteColor]];
     [self.btConfirmT setTitle:@"OK" forState:UIControlStateNormal];
     [self.btConfirmT addTarget:self action:@selector(confirmT) forControlEvents:UIControlEventTouchUpInside];
-    
-    
 }
+
+-(void)gosite{
+    NSURL *URL = [NSURL URLWithString:@"http://www.icecube.ru"];
+    [[UIApplication sharedApplication] openURL:URL options:@{UIApplicationOpenURLOptionUniversalLinksOnly:@NO} completionHandler:^(BOOL success) {
+        nil;
+    }];
+}
+
 -(void)getStoredPass{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     //self.strpass = [NSString stringWithFormat:@"%@%@%@",self.tfPass1.text,self.tfPass2.text,self.tfPass3.text];

@@ -151,17 +151,36 @@
     [btBluetooth setSd_cornerRadius:@8.0f];
     [btBluetooth addTarget:self action:@selector(scan) forControlEvents:UIControlEventTouchUpInside];
     
-    UILabel  *labelUrl = [UILabel new];
-    [self.view addSubview:labelUrl];
-    [labelUrl setText:@"www.icecube.ru"];
-    labelUrl.font = [UIFont fontWithName:@"Arial" size:12.0];
-    [labelUrl setTextColor:[UIColor colorWithRed:11.0/255 green:57.0/255 blue:148.0/255 alpha:1.0]];
-    labelUrl.sd_layout
+//    UILabel  *labelUrl = [UILabel new];
+//    [self.view addSubview:labelUrl];
+//    [labelUrl setText:@"www.icecube.ru"];
+//    labelUrl.font = [UIFont fontWithName:@"Arial" size:12.0];
+//    [labelUrl setTextColor:[UIColor colorWithRed:11.0/255 green:57.0/255 blue:148.0/255 alpha:1.0]];
+//    labelUrl.sd_layout
+//        .centerXEqualToView(self.view)
+//        .topSpaceToView(self.view, 1546*rheight)
+//        .heightIs(54*rheight)
+//        .widthIs(170*rwith);
+//    [labelUrl adjustsFontSizeToFitWidth];
+//}
+    
+    UIButton  *btUrl = [UIButton new];
+    [self.view addSubview:btUrl];
+    [btUrl setTitle:@"www.icecube.ru" forState:UIControlStateNormal];
+    [btUrl setTitleColor:[UIColor colorWithRed:11.0/255 green:57.0/255 blue:148.0/255 alpha:1.0] forState:UIControlStateNormal];
+    btUrl.sd_layout
         .centerXEqualToView(self.view)
         .topSpaceToView(self.view, 1546*rheight)
         .heightIs(54*rheight)
-        .widthIs(170*rwith);
-    [labelUrl adjustsFontSizeToFitWidth];
+        .widthIs(300*rwith);
+    [btUrl addTarget:self action:@selector(gosite) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)gosite{
+    NSURL *URL = [NSURL URLWithString:@"http://www.icecube.ru"];
+    [[UIApplication sharedApplication] openURL:URL options:@{UIApplicationOpenURLOptionUniversalLinksOnly:@NO} completionHandler:^(BOOL success) {
+        nil;
+    }];
 }
 
 -(void)backhome{
