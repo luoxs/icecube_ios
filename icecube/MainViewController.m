@@ -620,7 +620,7 @@
         //        weakSelf.hud.mode = MBProgressHUDModeText;
         //        weakSelf.hud.label.text = @"Device connected!";
         //        [weakSelf.hud setMinShowTime:1];
-        //        [weakSelf.hud hideAnimated:YES];
+        //        [weakSelf.hud hideAnimated:YES
         [peripheral discoverServices:nil];
     }];
     

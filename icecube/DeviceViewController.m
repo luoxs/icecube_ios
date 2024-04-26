@@ -6,6 +6,7 @@
 //
 
 #import "DeviceViewController.h"
+#import "HomeViewController.h"
 #import "ScanViewController.h"
 #import "SDAutoLayout.h"
 
@@ -144,7 +145,13 @@
 
 
 -(void)backhome{
-    [self dismissViewControllerAnimated:YES completion:^{
+//    [self dismissViewControllerAnimated:YES completion:^{
+//        nil;
+//    }];
+    
+    HomeViewController *homeViewController = [HomeViewController new];
+    homeViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:homeViewController animated:YES completion:^{
         nil;
     }];
 }
