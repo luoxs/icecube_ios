@@ -1157,11 +1157,22 @@
 }
 
 -(void) updateReal{
+ 
+  
+    int real = self.dataRead.temReal;
     int scale = self.dataRead.unit;
+ 
+    
+    //温度和单位设置
+
+    if(real>127){
+        real -= 256;
+    }
+    
     if(scale == 0){ //实际华氏
-        self.lbTempSetting.text = [NSString stringWithFormat:  @"%d°F",(int)(self.dataRead.temReal*1.8+ 32)];
+        self.lbTempSetting.text = [NSString stringWithFormat:  @"%d°F",(int)(real*1.8+ 32)];
     }else{   // 实际摄氏
-        self.lbTempSetting.text = [NSString stringWithFormat:@"%d°C", self.dataRead.temReal];
+        self.lbTempSetting.text = [NSString stringWithFormat:@"%d°C", real];
     }
 }
 
