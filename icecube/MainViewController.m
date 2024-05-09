@@ -53,7 +53,9 @@
 @property(nonatomic,strong) UIButton *btEco;
 @property(nonatomic,strong) UIButton *btConfirmT;
 
-@property(nonatomic, strong) NSTimer *timer;
+@property (nonatomic,strong) NSTimer *timer;
+@property (nonatomic, assign) BOOL isTimerRunning;
+
 @property(nonatomic,strong) MBProgressHUD *hud;
 @property int style;  //保鲜模式
 @property int tag;
@@ -75,18 +77,16 @@
     [self.viewMusk setHidden:YES];
     [self.viewMuskTurbo setHidden:YES];
     
-    
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        [self getStatus];
-    }];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(getStatus) userInfo:nil repeats:YES];
+    self.isTimerRunning = YES;
 }
 
 -(void) viewWillAppear:(BOOL)animated{
     baby = [BabyBluetooth shareBabyBluetooth];
     //设置蓝牙委托
     [self babyDelegate];
-    [self.timer isValid];
-    self.timer = nil;
+//    [self.timer isValid];
+//    self.timer = nil;
     [self getStatus];
 }
 
@@ -685,7 +685,7 @@
                 weakSelf.dataRead.crcl = r[20];   //CRC校验低八位
                 weakSelf.dataRead.end = r[21];  //通信结束
                 [weakSelf updateStatus];
-                [weakSelf.timer invalidate];
+             //   [weakSelf.timer invalidate];
                 if(weakSelf.tag == 1){
                     [weakSelf updateReal];
                     weakSelf.tag = 0;
@@ -744,6 +744,10 @@
 
 
 -(void)setMinus{
+    if (self.timer.isValid) {
+            [self.timer invalidate];
+            self.isTimerRunning = NO;
+    }
     int setting = self.dataRead.temsetting;
     setting--;
     //    if(setting > 127){
@@ -767,6 +771,11 @@
 }
 
 -(void)setAdd{
+    if (self.timer.isValid) {
+            [self.timer invalidate];
+            self.isTimerRunning = NO;
+    }
+    
     int setting = self.dataRead.temsetting;
     setting++;
     //    if(setting > 127){
@@ -790,6 +799,10 @@
 }
 
 -(void)setFresh{
+    if (self.timer.isValid) {
+            [self.timer invalidate];
+            self.isTimerRunning = NO;
+    }
     
     if(self.style != 1){
         self.style = 1;
@@ -818,6 +831,10 @@
     }
 }
 -(void)setDrink{
+    if (self.timer.isValid) {
+            [self.timer invalidate];
+            self.isTimerRunning = NO;
+    }
     
     if(self.style !=2 ){
         self.style = 2;
@@ -849,6 +866,10 @@
 }
 
 -(void)setIcecream{
+    if (self.timer.isValid) {
+            [self.timer invalidate];
+            self.isTimerRunning = NO;
+    }
     
     if(self.style !=3 ){
         self.style = 3;
@@ -879,6 +900,10 @@
 }
 
 -(void)setFruit{
+    if (self.timer.isValid) {
+            [self.timer invalidate];
+            self.isTimerRunning = NO;
+    }
     
     if(self.style != 4){
         self.style = 4;
@@ -910,6 +935,10 @@
     // [self updateStatus];
 }
 -(void) setUint{
+    if (self.timer.isValid) {
+            [self.timer invalidate];
+            self.isTimerRunning = NO;
+    }
     Byte scale = self.dataRead.unit;
     //scale = scale^0x01;
     if(self.characteristic != nil){
@@ -1068,8 +1097,7 @@
 }
 
 -(void) updateStatus{
-    //[self.btMinus setImage:nil forState:UIControlStateNormal];
-    [self.timer isValid];
+   
     
     int setting = self.dataRead.temsetting;
     int real = self.dataRead.temReal;
@@ -1153,6 +1181,11 @@
         }else{
             [self.prgview setProgress:(setting-(-20.0))/30.0];
         }
+    }
+    
+    if (!self.timer.isValid && self.isTimerRunning == NO) {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(getStatus) userInfo:nil repeats:YES];
+        self.isTimerRunning = YES;
     }
 }
 
