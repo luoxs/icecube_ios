@@ -104,9 +104,24 @@
     CGRect parentFrame = self.view.frame;
     float rwidth = parentFrame.size.width/768;
     float rheight = parentFrame.size.height/1595;
+    
+    //提示文字
+    CGRect rectlabel1 = CGRectMake(40*rwidth, 500*rheight, 688*rwidth, 108*rheight);
+    UILabel *label1= [[UILabel alloc] initWithFrame:rectlabel1];
+    [self.view addSubview:label1];
+    
+    [label1 setFont:[UIFont fontWithName:@"Arial" size:rwidth*39.0]];
+    label1.textColor = [UIColor blackColor];
+    label1.text = @"Пожалуйста, введите символы, \nуказанные на дисплее холодильника";
+    label1.textAlignment = NSTextAlignmentCenter;
+
+    //label1.lineBreakStrategy = NSLineBreakByWordWrapping;
+    label1.numberOfLines =2;
+
+    
 
     //密码框
-    CGRect rectPass1 = CGRectMake(160*rwidth, 630*rheight, 108*rwidth, 108*rwidth);
+    CGRect rectPass1 = CGRectMake(160*rwidth, 730*rheight, 108*rwidth, 128*rwidth);
     self.tfPass1 = [[UITextField alloc] initWithFrame:rectPass1];
     [self.tfPass1 setTextColor:[UIColor blackColor]];
     [self.tfPass1 setBackgroundColor:[UIColor grayColor]];
@@ -126,7 +141,7 @@
    // [self.tfPass1 addTarget:self action:@selector(touched:) forControlEvents:UIControlEventTouchUpInside];
     
     
-    CGRect rectPass2 = CGRectMake(334*rwidth, 630*rheight, 108*rwidth, 108*rwidth);
+    CGRect rectPass2 = CGRectMake(334*rwidth, 730*rheight, 108*rwidth, 128*rwidth);
     self.tfPass2 = [[UITextField alloc] initWithFrame:rectPass2];
     [self.tfPass2 setTextColor:[UIColor blackColor]];
     [self.tfPass2 setBackgroundColor:[UIColor grayColor]];
@@ -145,7 +160,7 @@
     self.tfPass2.delegate = self;
     [self.tfPass2 setKeyboardType:UIKeyboardTypeASCIICapable];
     
-    CGRect rectPass3 = CGRectMake(508*rwidth, 630*rheight, 108*rwidth, 108*rwidth);
+    CGRect rectPass3 = CGRectMake(508*rwidth, 730*rheight, 108*rwidth, 128*rwidth);
     self.tfPass3 = [[UITextField alloc] initWithFrame:rectPass3];
     [self.tfPass3 setTextColor:[UIColor blackColor]];
     [self.tfPass3 setBackgroundColor:[UIColor grayColor]];
