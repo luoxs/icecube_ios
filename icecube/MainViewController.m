@@ -685,7 +685,7 @@
                 weakSelf.dataRead.crcl = r[20];   //CRC校验低八位
                 weakSelf.dataRead.end = r[21];  //通信结束
                 [weakSelf updateStatus];
-             //   [weakSelf.timer invalidate];
+          
                 if(weakSelf.tag == 1){
                     [weakSelf updateReal];
                     weakSelf.tag = 0;
@@ -1098,12 +1098,20 @@
 
 -(void) updateStatus{
    
-    
     int setting = self.dataRead.temsetting;
     int real = self.dataRead.temReal;
     int scale = self.dataRead.unit;
     int frese = self.dataRead.fresetting;
     
+    int errcode = self.dataRead.err;
+    
+    if(errcode!=0){
+        self.lbTempSetting.text = [NSString stringWithFormat:@"E%d",errcode];
+        [self.lbTempSetting setTextColor:[UIColor brownColor]];
+        return;
+    }
+    
+    [self.lbTempSetting setTextColor:[UIColor whiteColor]];
     //温度和单位设置
     if(setting>127){
         setting -= 256;
@@ -1190,18 +1198,21 @@
 }
 
 -(void) updateReal{
- 
-  
     int real = self.dataRead.temReal;
     int scale = self.dataRead.unit;
- 
+    int errcode = self.dataRead.err;
     
+    if(errcode!=0){
+        self.lbTempSetting.text = [NSString stringWithFormat:@"E%d",errcode];
+        [self.lbTempSetting setTextColor:[UIColor brownColor]];
+        return;
+    }
+    
+    [self.lbTempSetting setTextColor:[UIColor whiteColor]];
     //温度和单位设置
-
     if(real>127){
         real -= 256;
     }
-    
     if(scale == 0){ //实际华氏
         self.lbTempSetting.text = [NSString stringWithFormat:  @"%d°F",(int)(real*1.8+ 32)];
     }else{   // 实际摄氏

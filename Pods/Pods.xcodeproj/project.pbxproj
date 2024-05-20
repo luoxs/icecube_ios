@@ -94,7 +94,7 @@
 		1F713EFEA4CFBFD89B1E5E9DA9C99706 /* BabyCentralManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyCentralManager.h; path = Classes/objc/BabyCentralManager.h; sourceTree = "<group>"; };
 		27F4CA13068522D6BE6D01B3B1B89D48 /* GHLLocalizable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GHLLocalizable.debug.xcconfig; sourceTree = "<group>"; };
 		29D24F1FE5929357F0A23734EE416C39 /* Pods-icecube-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-icecube-acknowledgements.markdown"; sourceTree = "<group>"; };
-		2D24B4853EF5CE5AD7D4FA5E183BD6E2 /* SDAutoLayout */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = SDAutoLayout; path = libSDAutoLayout.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D24B4853EF5CE5AD7D4FA5E183BD6E2 /* libSDAutoLayout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDAutoLayout.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CA287B46AE144EA13C4F9CA45094459 /* BabyToy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyToy.m; path = Classes/objc/BabyToy.m; sourceTree = "<group>"; };
 		468FD429D926593891B9D275FB1796C2 /* BabyCallback.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyCallback.m; path = Classes/objc/BabyCallback.m; sourceTree = "<group>"; };
 		47A7C29DF79C68C9ECE9E13406879F37 /* MBProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -108,8 +108,8 @@
 		60DCC7B99E957B3A50714774A4D671F5 /* SDAutoLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDAutoLayout-prefix.pch"; sourceTree = "<group>"; };
 		72420E61B603C9C7E5CEC56B43DE2C3A /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+SDAutoLayout.m"; path = "SDAutoLayoutDemo/SDAutoLayout/UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
 		737566D21F6044E577A30A2529E73832 /* FLAnimatedImage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FLAnimatedImage.release.xcconfig; sourceTree = "<group>"; };
-		763A52DD1E7FC3B334E49C94604A4AD7 /* BabyBluetooth */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = BabyBluetooth; path = libBabyBluetooth.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		7941422E5E594A5023C9E9D908AB44A9 /* Pods-icecube */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-icecube"; path = "libPods-icecube.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		763A52DD1E7FC3B334E49C94604A4AD7 /* libBabyBluetooth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBabyBluetooth.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7941422E5E594A5023C9E9D908AB44A9 /* libPods-icecube.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-icecube.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DDDECD3E75CB78D3C5011B577832266 /* BabyCentralManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BabyCentralManager.m; path = Classes/objc/BabyCentralManager.m; sourceTree = "<group>"; };
 		7F5C5E40BD9595688217981755205FCD /* BabyPeripheralManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyPeripheralManager.h; path = Classes/objc/BabyPeripheralManager.h; sourceTree = "<group>"; };
 		80D34C10AD98F5725030F988652C082E /* MBProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -117,12 +117,12 @@
 		84FB6E430F1FEAECDF9F66D4AEA1E2F4 /* FLAnimatedImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLAnimatedImage.h; path = FLAnimatedImage/include/FLAnimatedImage.h; sourceTree = "<group>"; };
 		87D7CF122A419D89B1615418715CA638 /* NSBundle+GHLLanguage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+GHLLanguage.m"; path = "GHLLocalizable/NSBundle+GHLLanguage.m"; sourceTree = "<group>"; };
 		8A3B760A76723FF08F55E18144223905 /* BabyBluetooth-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BabyBluetooth-dummy.m"; sourceTree = "<group>"; };
-		8B8FAB0D627B17EDE1366984278705D9 /* MBProgressHUD */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = MBProgressHUD; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B8FAB0D627B17EDE1366984278705D9 /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BFB628707E54C9029A81859A68005B4 /* FLAnimatedImage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FLAnimatedImage.debug.xcconfig; sourceTree = "<group>"; };
 		8F50704D420EC3811D10729E28A8F063 /* GHLLocalizable-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GHLLocalizable-dummy.m"; sourceTree = "<group>"; };
 		92B03E60C5225EAAA3876E7F69F415E0 /* FLAnimatedImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLAnimatedImageView.m; path = FLAnimatedImage/FLAnimatedImageView.m; sourceTree = "<group>"; };
-		9AD133ADCB3FFA04608D6916B54AB667 /* GHLLocalizable */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = GHLLocalizable; path = libGHLLocalizable.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9AD133ADCB3FFA04608D6916B54AB667 /* libGHLLocalizable.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGHLLocalizable.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F67AAD89E5AA40A495E2504A8DE1A15 /* MBProgressHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBProgressHUD.release.xcconfig; sourceTree = "<group>"; };
 		9FBF19A6509075300C0829BA7B67A4C2 /* FLAnimatedImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FLAnimatedImage-dummy.m"; sourceTree = "<group>"; };
 		A78FA2CF49750D43FC2622FE252185AE /* BabyBluetooth-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BabyBluetooth-prefix.pch"; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 		F09D2C46A2F0604F3903AA58B445F6C5 /* BabyDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BabyDefine.h; path = Classes/objc/BabyDefine.h; sourceTree = "<group>"; };
 		F13F70C31DDECCC806C7413942490309 /* Pods-icecube-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-icecube-dummy.m"; sourceTree = "<group>"; };
 		F7D7B6021CBF33B78A68272F488E090F /* Pods-icecube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-icecube.release.xcconfig"; sourceTree = "<group>"; };
-		FAA5F2D71B90788C908800A94534AA92 /* FLAnimatedImage */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = FLAnimatedImage; path = libFLAnimatedImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAA5F2D71B90788C908800A94534AA92 /* libFLAnimatedImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFLAnimatedImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD31D53F65869837304129288E80BE11 /* NSBundle+GHLLanguage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBundle+GHLLanguage.h"; path = "GHLLocalizable/NSBundle+GHLLanguage.h"; sourceTree = "<group>"; };
 		FD5D5D42F22C60A2747A7FDC61948B2D /* GHLLocalizable-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GHLLocalizable-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,7 +209,6 @@
 				87D7CF122A419D89B1615418715CA638 /* NSBundle+GHLLanguage.m */,
 				9905BEE778195D50D751DF5111DD428E /* Support Files */,
 			);
-			name = GHLLocalizable;
 			path = GHLLocalizable;
 			sourceTree = "<group>";
 		};
@@ -236,12 +235,12 @@
 		431C0099C56784B3362B3BBAC054E2D9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				763A52DD1E7FC3B334E49C94604A4AD7 /* BabyBluetooth */,
-				FAA5F2D71B90788C908800A94534AA92 /* FLAnimatedImage */,
-				9AD133ADCB3FFA04608D6916B54AB667 /* GHLLocalizable */,
-				8B8FAB0D627B17EDE1366984278705D9 /* MBProgressHUD */,
-				7941422E5E594A5023C9E9D908AB44A9 /* Pods-icecube */,
-				2D24B4853EF5CE5AD7D4FA5E183BD6E2 /* SDAutoLayout */,
+				763A52DD1E7FC3B334E49C94604A4AD7 /* libBabyBluetooth.a */,
+				FAA5F2D71B90788C908800A94534AA92 /* libFLAnimatedImage.a */,
+				9AD133ADCB3FFA04608D6916B54AB667 /* libGHLLocalizable.a */,
+				8B8FAB0D627B17EDE1366984278705D9 /* libMBProgressHUD.a */,
+				7941422E5E594A5023C9E9D908AB44A9 /* libPods-icecube.a */,
+				2D24B4853EF5CE5AD7D4FA5E183BD6E2 /* libSDAutoLayout.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -269,7 +268,6 @@
 				3CA287B46AE144EA13C4F9CA45094459 /* BabyToy.m */,
 				AB0E631D6CA88D7CA62989A18B95CD89 /* Support Files */,
 			);
-			name = BabyBluetooth;
 			path = BabyBluetooth;
 			sourceTree = "<group>";
 		};
@@ -283,7 +281,6 @@
 				72420E61B603C9C7E5CEC56B43DE2C3A /* UIView+SDAutoLayout.m */,
 				A36CDEE9A67DB2FDC306ABBF37FF04FE /* Support Files */,
 			);
-			name = SDAutoLayout;
 			path = SDAutoLayout;
 			sourceTree = "<group>";
 		};
@@ -294,7 +291,6 @@
 				47A7C29DF79C68C9ECE9E13406879F37 /* MBProgressHUD.m */,
 				E87E563A3C141942981F3EBD6244D8A0 /* Support Files */,
 			);
-			name = MBProgressHUD;
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
@@ -356,7 +352,6 @@
 				92B03E60C5225EAAA3876E7F69F415E0 /* FLAnimatedImageView.m */,
 				CC759278B2587524A2CC3AA238EEB6F6 /* Support Files */,
 			);
-			name = FLAnimatedImage;
 			path = FLAnimatedImage;
 			sourceTree = "<group>";
 		};
@@ -481,7 +476,7 @@
 			);
 			name = SDAutoLayout;
 			productName = SDAutoLayout;
-			productReference = 2D24B4853EF5CE5AD7D4FA5E183BD6E2 /* SDAutoLayout */;
+			productReference = 2D24B4853EF5CE5AD7D4FA5E183BD6E2 /* libSDAutoLayout.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		25A41AE5E52F6C0CE6354B9305FD89EE /* BabyBluetooth */ = {
@@ -498,7 +493,7 @@
 			);
 			name = BabyBluetooth;
 			productName = BabyBluetooth;
-			productReference = 763A52DD1E7FC3B334E49C94604A4AD7 /* BabyBluetooth */;
+			productReference = 763A52DD1E7FC3B334E49C94604A4AD7 /* libBabyBluetooth.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		4A8E8992707D01510894596DB9BCCA00 /* FLAnimatedImage */ = {
@@ -515,7 +510,7 @@
 			);
 			name = FLAnimatedImage;
 			productName = FLAnimatedImage;
-			productReference = FAA5F2D71B90788C908800A94534AA92 /* FLAnimatedImage */;
+			productReference = FAA5F2D71B90788C908800A94534AA92 /* libFLAnimatedImage.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		82B0A41D3031FF27D78E17B0A9A46FB0 /* MBProgressHUD */ = {
@@ -532,7 +527,7 @@
 			);
 			name = MBProgressHUD;
 			productName = MBProgressHUD;
-			productReference = 8B8FAB0D627B17EDE1366984278705D9 /* MBProgressHUD */;
+			productReference = 8B8FAB0D627B17EDE1366984278705D9 /* libMBProgressHUD.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		AB0FF2A24E79EF8890C5EF5E24C63C6B /* Pods-icecube */ = {
@@ -554,7 +549,7 @@
 			);
 			name = "Pods-icecube";
 			productName = "Pods-icecube";
-			productReference = 7941422E5E594A5023C9E9D908AB44A9 /* Pods-icecube */;
+			productReference = 7941422E5E594A5023C9E9D908AB44A9 /* libPods-icecube.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		E3B5781A6C52C739F014E8B8A44286BE /* GHLLocalizable */ = {
@@ -571,7 +566,7 @@
 			);
 			name = GHLLocalizable;
 			productName = GHLLocalizable;
-			productReference = 9AD133ADCB3FFA04608D6916B54AB667 /* GHLLocalizable */;
+			productReference = 9AD133ADCB3FFA04608D6916B54AB667 /* libGHLLocalizable.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -580,8 +575,9 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1540;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -715,7 +711,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/GHLLocalizable/GHLLocalizable-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -764,9 +760,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -787,7 +785,6 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -803,7 +800,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/SDAutoLayout/SDAutoLayout-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -826,7 +823,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/BabyBluetooth/BabyBluetooth-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -848,7 +845,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/FLAnimatedImage/FLAnimatedImage-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -870,7 +867,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/FLAnimatedImage/FLAnimatedImage-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -920,9 +917,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -939,7 +938,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
@@ -955,7 +953,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -977,7 +975,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/BabyBluetooth/BabyBluetooth-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -1000,7 +998,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/GHLLocalizable/GHLLocalizable-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -1023,7 +1021,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/SDAutoLayout/SDAutoLayout-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -1045,7 +1043,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
