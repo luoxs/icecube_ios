@@ -62,6 +62,7 @@
 		45D5F17B2BAEC49200EC528C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D5F1792BAEC49200EC528C /* LaunchScreen.storyboard */; };
 		45D5F17E2BAEC49200EC528C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D5F17D2BAEC49200EC528C /* main.m */; };
 		A91CFFC71447B8B3692FA66B /* libPods-icecube.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5DE4FE0087E0505C7FB262 /* libPods-icecube.a */; };
+		AA24A1132C0F4EE5000086ED /* errorsign.png in Resources */ = {isa = PBXBuildFile; fileRef = AA24A1122C0F4EE5000086ED /* errorsign.png */; };
 		AAB71D342C00821B00CE3B1E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAB71D322C00821B00CE3B1E /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +135,7 @@
 		45D5F17C2BAEC49200EC528C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45D5F17D2BAEC49200EC528C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		916E0697115D861E3CB4DD01 /* Pods-icecube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-icecube.debug.xcconfig"; path = "Target Support Files/Pods-icecube/Pods-icecube.debug.xcconfig"; sourceTree = "<group>"; };
+		AA24A1122C0F4EE5000086ED /* errorsign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = errorsign.png; sourceTree = "<group>"; };
 		AAB71D3B2C00847C00CE3B1E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		AAB71D3C2C00847C00CE3B1E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		AAB71D3D2C00847C00CE3B1E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		4559F8B52BBED446007E64E1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AA24A1122C0F4EE5000086ED /* errorsign.png */,
 				453970992BC81C84005D1CF4 /* center.png */,
 				4539709A2BC81C84005D1CF4 /* center1.png */,
 				4539709B2BC81C85005D1CF4 /* powerback.png */,
@@ -359,6 +362,7 @@
 				AAB71D342C00821B00CE3B1E /* Localizable.strings in Resources */,
 				4539708D2BC68EEB005D1CF4 /* turbo.png in Resources */,
 				45D5F17B2BAEC49200EC528C /* LaunchScreen.storyboard in Resources */,
+				AA24A1132C0F4EE5000086ED /* errorsign.png in Resources */,
 				453970982BC81A90005D1CF4 /* FC.png in Resources */,
 				459DC6332BBFC5680045A571 /* return.png in Resources */,
 				4539709D2BC81C86005D1CF4 /* center1.png in Resources */,

@@ -165,7 +165,7 @@
     }else if(sender.tag==102){
         scanViewController.strtype = @"IC43";
     }else{
-        scanViewController.strtype = @"IC60";
+        scanViewController.strtype = @"IC63";
     }
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:scanViewController.strtype forKey:@"strtype"];  //冰箱类型

@@ -30,6 +30,9 @@
 @property(nonatomic,strong) UIButton *btAdd;
 @property(nonatomic,strong) UIButton *btMinus;
 @property(nonatomic,retain) UIProgressView *prgview;
+@property(nonatomic,retain) UIView *errorView;  //显示错误信息
+@property(nonatomic,retain) UILabel *labelerror;
+
 @property Byte bytePass1;
 @property Byte bytePass2;
 @property Byte bytePass3;
@@ -133,7 +136,6 @@
         .centerXEqualToView(self.view)
         .widthEqualToHeight();
     
-    
     //温度显示
     self.lbTempSetting = [[UILabel alloc] init];
     [ self.view addSubview:self.lbTempSetting];
@@ -149,6 +151,38 @@
     [self.lbTempSetting  setFont:[UIFont fontWithName:@"DINAlternate-Bold" size:50]];
     [self.lbTempSetting  setTextColor:[UIColor whiteColor]];
     [self.lbTempSetting sizeToFit];
+    
+    //错误显示
+    self.errorView =[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"center1"]];
+    [self.view addSubview: self.errorView];
+    self.errorView.sd_layout
+        .topSpaceToView(self.view, rheight*360)
+        .heightIs(rheight*560)
+        .centerXEqualToView(self.view)
+        .widthEqualToHeight();
+    
+    UIImageView *errorsign = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"errorsign"]];
+    [self.errorView addSubview:errorsign];
+    errorsign.sd_layout
+    .centerXEqualToView(self.errorView)
+    .centerYEqualToView(self.errorView)
+    .heightIs(rheight*110)
+    .widthIs(rwith * 276);
+    [self.errorView setHidden:YES];
+    
+    //错误代码
+    if(self.labelerror == nil){
+        self.labelerror = [UILabel new];
+        [self.errorView addSubview:self.labelerror];
+        self.labelerror.sd_layout
+        .leftSpaceToView(self.errorView, rwith * 300)
+        .topSpaceToView(self.errorView, rheight*200)
+        .heightIs(rheight*110)
+        .widthIs(rwith * 276);
+        [self.labelerror setText:@"E1"];
+        [self.labelerror setFont:[UIFont fontWithName:@"Arial" size:40]];
+        [self.labelerror setTextColor:[UIColor colorWithRed:232.0/255 green:117.0/255 blue:47.0/255 alpha:1.0]];
+    }
     
     
     //单位图案
@@ -932,8 +966,9 @@
         [self.currPeripheral writeValue:data forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
         [self.currPeripheral setNotifyValue:YES forCharacteristic:self.characteristic];
     }
-    // [self updateStatus];
 }
+
+//设置单位
 -(void) setUint{
     if (self.timer.isValid) {
             [self.timer invalidate];
@@ -1097,19 +1132,18 @@
 }
 
 -(void) updateStatus{
-   
     int setting = self.dataRead.temsetting;
     int real = self.dataRead.temReal;
     int scale = self.dataRead.unit;
     int frese = self.dataRead.fresetting;
-    
     int errcode = self.dataRead.err;
     
-    if(errcode!=0){
-        self.lbTempSetting.text = [NSString stringWithFormat:@"E%d",errcode];
-        [self.lbTempSetting setTextColor:[UIColor brownColor]];
+    if(errcode !=0){
+        [self.labelerror setText:[NSString stringWithFormat:@"E%d",errcode]];
+        [self.errorView setHidden:NO];
         return;
     }
+    [self.errorView setHidden:YES];
     
     [self.lbTempSetting setTextColor:[UIColor whiteColor]];
     //温度和单位设置
@@ -1203,10 +1237,11 @@
     int errcode = self.dataRead.err;
     
     if(errcode!=0){
-        self.lbTempSetting.text = [NSString stringWithFormat:@"E%d",errcode];
-        [self.lbTempSetting setTextColor:[UIColor brownColor]];
+        [self.labelerror setText:[NSString stringWithFormat:@"E%d",errcode]];
+        [self.errorView setHidden:NO];
         return;
     }
+    [self.errorView setHidden:YES];
     
     [self.lbTempSetting setTextColor:[UIColor whiteColor]];
     //温度和单位设置
